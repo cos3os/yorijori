@@ -1,0 +1,1637 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>요리죠리 프로젝트 페이지 3D (Copy)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="요리죠리: 요리가 쉬워지는 사용자 맞춤형 AI 요리 파트너, 팀 죠리사의 졸업 프로젝트 소개 페이지">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700;800;900&display=swap">
+<style>
+/* Layout: 케이스 스터디 한 줄 — 16:9 움직이는 장면, 645:745 짝 장면, 그 사이에 글 띠. 장면 안은 cqw 단위라 영상처럼 통째로 줄고 늘어난다. */
+:root{
+  --paper:#FBF7F2; --ink:#2A1D12; --ink-2:#6F6358; --ink-3:#A3968A; --rule:#E4D6C6; --focus:#EE7413;
+  /* 장면 색: 영상처럼 테마와 상관없이 고정 */
+  --orange:#EE7413; --orange-d:#C9580A; --amber:#F6A93B; --cream:#FFF7EC; --peach:#FBEBD8; --sand:#F4E2CB;
+  --night:#1F150D; --night-2:#33251A; --cocoa:#8A4B1F; --leaf:#5E8C4A; --chili:#D9452B; --milk:#FFFCF8;
+  --f-sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --gap:clamp(12px,2.4vw,34px);
+}
+/* 전시용: 기기가 다크 모드여도 밝은 화면 그대로(장면 색이 밝게 고정돼 있어 글자만 밝아지면 안 보인다) */
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:21;background:var(--paper)}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:inherit;text-wrap:balance}
+.wrap{max-width:1232px;margin-inline:auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+
+/* 머리: 왼쪽 로고, 오른쪽 메뉴 */
+.top{position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule)}
+.top .in{max-width:1920px;margin-inline:auto;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:14px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px), 3vw);padding-right:max(16px, env(safe-area-inset-right, 0px), 3vw)}
+.top .brand img{display:block;height:26px;width:auto}
+.top nav{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.08em;color:var(--ink-3)}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--focus)}
+.top nav span{color:var(--rule)}
+
+/* 화면 패널: 화면 폭을 꽉 채워 틈 없이 쌓인다 */
+.media{display:grid;max-width:1920px;margin-inline:auto}
+.pair{display:grid;grid-template-columns:1fr 1fr}
+
+/* 제목·소개 한 줄 */
+.intro{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:24px 48px;padding-block:clamp(36px,5vw,72px)}
+.intro h1{font-size:clamp(26px,2.65vw,38px);font-weight:700;letter-spacing:-.03em;line-height:1.3;color:var(--focus)}
+.intro .team{margin-top:18px;font-size:18px;font-weight:700}
+.intro .members{margin-top:4px;font-size:17px;color:var(--ink-2)}
+.intro .desc{display:grid;gap:10px;font-size:16px;line-height:1.75;color:var(--ink-2);max-width:42em}
+
+/* 디자이너 */
+.designer{padding-block:clamp(56px,7vw,110px) clamp(40px,5vw,72px)}
+.designer h2{font-size:clamp(32px,3.6vw,52px);font-weight:500;letter-spacing:-.02em}
+.designer .team-name{margin-top:10px;font-size:clamp(18px,1.6vw,22px);font-weight:700;color:var(--focus)}
+.designer ul{list-style:none;margin:clamp(24px,3vw,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.designer li{border-top:1px solid var(--rule);padding-top:18px;font-size:clamp(24px,2.65vw,38px);font-weight:700;letter-spacing:-.03em}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;border-top:1px solid var(--rule);padding-block:28px 40px;color:var(--ink-3);font-size:14px}
+.foot img{height:36px;width:auto;display:block}
+
+/* ===== 장면 공통 ===== */
+.tile{position:relative;overflow:hidden;container-type:inline-size;aspect-ratio:16/9;max-width:100%;isolation:isolate;background:var(--cream);color:var(--ink);font-family:var(--f-sans)}
+.tile.half{aspect-ratio:8/9}
+.tile .a{position:absolute}
+.tile img{display:block;max-width:none}
+.tile p{margin:0}
+.mono{font-family:var(--f-mono)}
+.tag{font-family:var(--f-mono);font-size:1.15cqw;letter-spacing:.04em;text-transform:none}
+.half .tag{font-size:2.5cqw}
+.snap,.snap *{transition:none!important}
+.tile:not(.play),.tile:not(.play) *{animation-play-state:paused!important}
+.e-out{transition:transform .9s cubic-bezier(.2,1.25,.35,1),opacity .5s ease}
+.e-soft{transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .6s ease}
+.tile.out .stage{opacity:0;transition:opacity .6s ease}
+.stage{position:absolute;inset:0;transition:opacity .5s ease}
+
+/* 폰 틀 */
+.phone{position:absolute;width:var(--pw);aspect-ratio:390/844;border-radius:calc(var(--pw)*.155);background:#1a1511;padding:calc(var(--pw)*.03);
+  box-shadow:0 calc(var(--pw)*.06) calc(var(--pw)*.14) rgba(70,32,6,.22),inset 0 0 0 calc(var(--pw)*.008) #4a4039}
+.phone .scr{position:relative;width:100%;height:100%;border-radius:calc(var(--pw)*.125);overflow:hidden;background:#FFFBF5}
+.phone .scr img{position:absolute;left:0;top:0;width:100%;height:auto}
+.phone .island{position:absolute;z-index:3;top:calc(var(--pw)*.06);left:50%;width:calc(var(--pw)*.29);height:calc(var(--pw)*.085);border-radius:99px;background:#0b0907;transform:translateX(-50%)}
+.card{position:absolute;border-radius:var(--r,1.2cqw);box-shadow:0 1.2cqw 3cqw rgba(80,40,10,.16),0 .2cqw .5cqw rgba(80,40,10,.08)}
+.card img{width:100%;height:auto;border-radius:inherit}
+
+/* ===== 1 히어로 ===== */
+.t-hero{background:
+  radial-gradient(ellipse 42cqw 35cqw at 70% 50%, rgba(255,183,110,.62), rgba(255,200,142,.26) 45%, rgba(255,200,142,0) 100%),
+  linear-gradient(150deg,#FFF7EC 0%,#FDEBD5 50%,#F9D6AE 100%)}
+.t-hero .arc{border-radius:50%;border:max(1px,.08cqw) solid rgba(232,113,15,.14)}
+.t-hero .arc1{left:28.1cqw;top:-20.3cqw;width:85.9cqw;height:85.9cqw}
+.t-hero .arc2{left:41.4cqw;top:-7cqw;width:59.4cqw;height:59.4cqw}
+.t-hero .haze{left:50cqw;top:3.1cqw;width:48.4cqw;height:48.4cqw;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.45),rgba(255,255,255,0) 65%)}
+.t-hero .copy{left:6.82cqw;top:16.25cqw}
+.t-hero .copy p{font-size:2.5cqw;line-height:1.42;letter-spacing:-.0625cqw;white-space:nowrap}
+.t-hero .l1{color:rgba(42,29,18,.62)}
+.t-hero .l2{color:#7a6f65;font-weight:700}
+.t-hero .copy p{transition:opacity .6s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.t-hero.s0 .copy p{opacity:0;transform:translateY(1.2cqw)}
+.t-hero.s0 .copy .l2{transition-delay:.15s}
+.t-hero.s2 .copy p{opacity:1;transform:none}
+.t-hero .logo{display:flex;width:43.8cqw;margin-top:.6cqw}
+.t-hero .logo img{height:auto}
+.t-hero .logo img:nth-child(1){width:11.19cqw}.t-hero .logo img:nth-child(2){width:10.5cqw}
+.t-hero .logo img:nth-child(3){width:11.15cqw;transform-origin:50% 90%}.t-hero .logo img:nth-child(4){width:10.97cqw}
+.t-hero .ph1{left:49.17cqw;top:.99cqw;width:33.78cqw}
+.t-hero .ph2{left:68.7cqw;top:11.1cqw;width:31.5cqw}
+.t-hero .jori{left:63.73cqw;top:27.6cqw;width:13.7cqw;transform:rotate(5deg);filter:drop-shadow(0 .6cqw 1.5cqw rgba(110,36,0,.3));will-change:transform}
+.t-hero .shadow{left:65.94cqw;top:52.6cqw;width:9.43cqw;height:1.56cqw;border-radius:50%;background:radial-gradient(closest-side,rgba(110,36,0,.28),rgba(110,36,0,0))}
+.orb{width:var(--o);height:var(--o)}
+.orb img{position:absolute;left:-30%;top:-10.5%;width:160%;height:160%}
+.orb.l img{left:-38.08%;top:-13.33%;width:176.16%;height:176.16%}
+.t-hero .o1{--o:8.125cqw;left:90.3cqw;top:44.06cqw}
+.t-hero .o2{--o:5cqw;left:46.04cqw;top:44.06cqw}
+.t-hero .o3{--o:2.97cqw;left:87.45cqw;top:8.85cqw}
+.t-hero .o4{--o:1.72cqw;left:53.9cqw;top:33.6cqw}
+.t-hero .ph1,.t-hero .ph2,.t-hero .logo img,.t-hero .orb{transition:transform 1s cubic-bezier(.2,1.25,.35,1),opacity .5s ease}
+.t-hero .jori{transition:transform .8s cubic-bezier(.2,1.5,.4,1),opacity .3s ease}
+.t-hero .shadow{transition:transform .8s cubic-bezier(.2,1.5,.4,1),opacity .4s ease}
+.t-hero.s0 .ph1{transform:translateY(60cqw) rotate(-8deg);opacity:0}
+.t-hero.s0 .ph2{transform:translateY(60cqw) rotate(10deg);opacity:0;transition-delay:.12s}
+.t-hero.s0 .logo img{transform:translateY(-30cqw) rotate(-14deg);opacity:0}
+.t-hero.s0 .logo img:nth-child(2){transition-delay:.08s}.t-hero.s0 .logo img:nth-child(3){transition-delay:.16s}.t-hero.s0 .logo img:nth-child(4){transition-delay:.24s}
+.t-hero.s0 .jori{transform:translateY(30cqw) scale(.6) rotate(-10deg);opacity:0}
+.t-hero.s0 .shadow{transform:scale(.2);opacity:0}
+.t-hero.s0 .orb{transform:scale(0);opacity:0}
+.t-hero.s0 .o2{transition-delay:.1s}.t-hero.s0 .o3{transition-delay:.2s}.t-hero.s0 .o4{transition-delay:.3s}
+.t-hero.s1 .ph1{transform:rotate(0deg);opacity:1}
+.t-hero.s1 .ph2{transform:none;opacity:1}
+.t-hero.s3 .logo img{transform:none;opacity:1}
+.t-hero.s4 .jori{transform:rotate(5deg);opacity:1}
+.t-hero.s4 .shadow{transform:none;opacity:1}
+.t-hero.s5 .orb{transform:none;opacity:1}
+.t-hero.s5 .jori{animation:hop 1.6s cubic-bezier(.45,0,.55,1) .2s infinite}
+.t-hero.s5 .shadow{animation:hopShadow 1.6s cubic-bezier(.45,0,.55,1) .2s infinite}
+.t-hero.s5 .logo img:nth-child(3){animation:flick 2.4s ease-in-out .4s infinite}
+.t-hero.s5 .o1{animation:float 5s ease-in-out infinite}
+.t-hero.s5 .o2{animation:float 4.2s ease-in-out .6s infinite}
+.t-hero.s5 .o3{animation:float 3.6s ease-in-out .3s infinite}
+.t-hero.s5 .o4{animation:float 3s ease-in-out 1s infinite}
+@keyframes hop{0%,100%{transform:rotate(5deg) translateY(0)}45%{transform:rotate(3deg) translateY(-3.2cqw)}55%{transform:rotate(3deg) translateY(-3.2cqw)}}
+@keyframes hopShadow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.7);opacity:.55}}
+@keyframes flick{0%,100%{transform:rotate(0)}20%{transform:rotate(-3deg)}40%{transform:rotate(2deg)}60%{transform:rotate(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2cqw)}}
+
+/* ===== 2 실행 간극 ===== */
+.t-gap{background:var(--night);color:#F7EDE2}
+.t-gap .head{left:5cqw;top:4.6cqw;color:#BBA996}
+.t-gap .big{left:4.4cqw;top:8cqw;font-weight:800;font-size:12.5cqw;line-height:1;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.t-gap .big small{font-size:.5em;margin-left:.04em}
+.t-gap .sub{left:5cqw;top:22.6cqw;font-size:2.3cqw;font-weight:700;color:var(--amber)}
+.t-gap .legend{left:5cqw;top:29.4cqw;display:grid;gap:.9cqw;font-size:1.35cqw;width:30cqw}
+.t-gap .legend li{display:grid;grid-template-columns:1.2cqw 1fr auto;gap:1cqw;align-items:center;list-style:none;font-family:var(--f-mono);color:#E8DACB}
+.t-gap .legend ul{margin:0;padding:0;display:contents}
+.t-gap .legend i{width:1.2cqw;height:1.2cqw;border-radius:.25cqw;display:block}
+.t-gap .src{left:5cqw;bottom:4.2cqw;color:#8D7B6A}
+.t-gap .donut{left:51cqw;top:6.6cqw;width:31cqw;height:31cqw;overflow:visible}
+.t-gap .donut circle{fill:none;stroke-width:5.2;transition:stroke-dasharray 1s cubic-bezier(.65,0,.35,1)}
+.t-gap .donut .track{stroke:#2E2218}
+.t-gap .mid{left:51cqw;top:6.6cqw;width:31cqw;height:31cqw;display:grid;place-content:center;text-align:center}
+.t-gap .mid b{display:block;font-size:3.6cqw;font-weight:800;letter-spacing:-.03em}
+.t-gap .mid span{font-size:1.3cqw;color:#BBA996}
+.t-gap .voice{background:#FFF7EC;color:#2A1D12;font-size:1.35cqw;line-height:1.5;padding:1.1cqw 1.4cqw;border-radius:1.4cqw;width:24cqw;box-shadow:0 1cqw 2.4cqw rgba(0,0,0,.35)}
+.t-gap .voice::after{content:"";position:absolute;left:2.4cqw;bottom:-.9cqw;border:.6cqw solid transparent;border-top-color:#FFF7EC;border-bottom:0}
+.t-gap .v1{left:47cqw;top:7cqw}.t-gap .v2{left:71cqw;top:18.5cqw}.t-gap .v3{left:50cqw;top:30cqw}
+.t-gap .key{left:0;right:0;top:44.2cqw;text-align:center;font-size:2.35cqw;font-weight:700;letter-spacing:-.02em}
+.t-gap .key em{font-style:normal;color:var(--amber)}
+.t-gap .voice,.t-gap .key,.t-gap .legend li{transition:transform .8s cubic-bezier(.2,1.3,.35,1),opacity .5s ease}
+.t-gap .donut,.t-gap .mid{transition:opacity .6s ease;opacity:.18}
+.t-gap.s0 .donut{opacity:1}
+.t-gap.s0 .seg{stroke-dasharray:0 100}
+.t-gap.s0 .legend li{opacity:0;transform:translateX(-2cqw)}
+.t-gap.s0 .voice{opacity:0;transform:translateY(2cqw) scale(.85)}
+.t-gap.s0 .key{opacity:0;transform:translateY(2cqw)}
+.t-gap.s0 .mid{opacity:0}
+.t-gap.s1 .seg{stroke-dasharray:var(--len) 100}
+.t-gap.s1 .mid{opacity:1}
+.t-gap.s2 .legend li{opacity:1;transform:none}
+.t-gap.s2 .legend li:nth-child(2){transition-delay:.1s}.t-gap.s2 .legend li:nth-child(3){transition-delay:.2s}.t-gap.s2 .legend li:nth-child(4){transition-delay:.3s}
+.t-gap.s3 .donut,.t-gap.s3 .mid{opacity:.18}
+.t-gap.s3 .v1{opacity:1;transform:none}
+.t-gap.s4 .v2{opacity:1;transform:none}
+.t-gap.s5 .v3{opacity:1;transform:none}
+.t-gap.s6 .key{opacity:1;transform:none}
+
+/* ===== 3 세 가지 장벽 ===== */
+.t-bar{background:var(--cream)}
+.t-bar .lab{left:5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-bar .cnt{right:5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-bar .slide{left:0;right:0;top:0;bottom:0;display:grid;place-content:center;justify-items:center;gap:2.4cqw;text-align:center;opacity:0;transform:translateY(4cqw);transition:opacity .6s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.t-bar .slide.on{opacity:1;transform:none}
+.t-bar .slide.gone{opacity:0;transform:translateY(-4cqw)}
+.t-bar .pq{position:relative;font-size:3.6cqw;font-weight:800;letter-spacing:-.04em;color:#B4A698}
+.t-bar .pq::after{content:"";position:absolute;left:-1cqw;right:-1cqw;top:54%;height:max(2px,.32cqw);border-radius:1cqw;background:var(--orange);transform-origin:0 50%;transform:scaleX(0);transition:transform .55s cubic-bezier(.65,0,.35,1) .35s}
+.t-bar .sol{font-size:4.4cqw;font-weight:900;letter-spacing:-.05em;line-height:1.25;color:var(--ink);opacity:0;transform:translateY(1.6cqw);transition:opacity .5s ease .85s,transform .6s cubic-bezier(.22,1,.36,1) .85s}
+.t-bar .sol em{font-style:normal;color:var(--orange)}
+.t-bar .slide.on .pq::after{transform:none}
+.t-bar .slide.on .sol{opacity:1;transform:none}
+.t-bar .jo{right:6cqw;bottom:3cqw;width:7cqw}
+
+/* ===== 4 죠리 프레임 ===== */
+.t-frames{background:#140F0B;color:#F5EBDF}
+.t-frames .strip{left:5cqw;right:5cqw;top:12.5cqw;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));grid-auto-rows:38cqw}
+.t-frames .cell{position:relative}
+.t-frames .cell .n{position:absolute;left:0;right:0;bottom:3.1cqw;text-align:center;font-family:var(--f-mono);font-size:1.2cqw;color:#5A4A3C;transition:color .25s}
+.t-frames .cell .nm{position:absolute;left:0;right:0;bottom:.9cqw;text-align:center;font-size:1.25cqw;font-weight:700;color:transparent;transition:color .25s}
+.t-frames .cell img{position:absolute;left:50%;bottom:7.5cqw;height:15.5cqw;width:auto;max-width:9.4cqw;object-fit:contain;transform:translateX(-50%);filter:grayscale(1) brightness(.5) contrast(1.1);opacity:.45;transition:opacity .3s,transform .45s cubic-bezier(.2,1.4,.4,1)}
+.t-frames .cell::after{content:"";position:absolute;left:50%;bottom:6.3cqw;width:10cqw;height:2.4cqw;margin-left:-5cqw;border-radius:50%;background:radial-gradient(closest-side,rgba(246,169,59,.5),rgba(246,169,59,0));opacity:0;transition:opacity .3s}
+.t-frames .cell.on::after{opacity:1}
+.t-frames .cell.on .n{color:var(--amber)}
+.t-frames .cell.on .nm{color:#F5EBDF}
+.t-frames .cell.on img{filter:none;opacity:1;transform:translateX(-50%) scale(1.12)}
+
+/* ===== 5 온보딩 ===== */
+.t-onb{background:#FBEFE2}
+.t-onb .lab{left:5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-onb .ttl{left:5cqw;top:7.4cqw;font-size:2.6cqw;font-weight:800;letter-spacing:-.04em;line-height:1.3}
+.t-onb .flame{left:46.5cqw;top:17cqw;width:7cqw;transition:transform 1s cubic-bezier(.65,0,.35,1),opacity .4s}
+.t-onb .phone{--pw:13.4cqw;top:16.6cqw;transition:transform .7s cubic-bezier(.2,1.25,.35,1),opacity .5s ease}
+.t-onb .p1{left:21.1cqw}.t-onb .p2{left:37.3cqw}.t-onb .p3{left:53.5cqw}.t-onb .p4{left:69.7cqw}
+.t-onb .rail{left:27.8cqw;width:48.6cqw;top:48.6cqw;height:max(1px,.14cqw);background:#E5CDB2}
+.t-onb .fill{left:27.8cqw;top:48.6cqw;height:max(1px,.14cqw);width:var(--fill,48.6cqw);background:var(--orange);transition:width .7s cubic-bezier(.65,0,.35,1)}
+.t-onb .dot{top:47.85cqw;width:1.5cqw;height:1.5cqw;margin-left:-.75cqw;border-radius:50%;background:var(--orange);border:max(1px,.14cqw) solid var(--orange);transition:background .3s,transform .3s}
+.t-onb .d1{left:27.8cqw}.t-onb .d2{left:44cqw}.t-onb .d3{left:60.2cqw}.t-onb .d4{left:76.4cqw}
+.t-onb .nm{top:50.4cqw;width:12cqw;margin-left:-6cqw;text-align:center;font-size:1.3cqw;font-weight:700;color:var(--ink)}
+.t-onb .n1{left:27.8cqw}.t-onb .n2{left:44cqw}.t-onb .n3{left:60.2cqw}.t-onb .n4{left:76.4cqw}
+.t-onb.s0 .phone{transform:translateY(46cqw);opacity:0}
+.t-onb .flame{opacity:0}
+.t-onb.s0 .flame{transform:translate(0,0) scale(1.6);opacity:1}
+.t-onb.s0 .p2{transition-delay:.07s}.t-onb.s0 .p3{transition-delay:.14s}.t-onb.s0 .p4{transition-delay:.21s}
+.t-onb.s0 .dot{background:#FBEFE2}
+.t-onb.s0 .fill{--fill:0cqw}
+.t-onb.s0 .ttl,.t-onb.s0 .lab{opacity:0}
+.t-onb .ttl,.t-onb .lab,.t-onb .rail,.t-onb .fill,.t-onb .dot,.t-onb .nm{transition:opacity .5s ease}
+.t-onb.s0 .rail,.t-onb.s0 .fill,.t-onb.s0 .dot,.t-onb.s0 .nm{opacity:0}
+.t-onb.s2 .rail,.t-onb.s2 .fill,.t-onb.s2 .dot,.t-onb.s2 .nm{opacity:1}
+.t-onb.s1 .flame{transform:translate(-41.5cqw,-11.4cqw) scale(.42);opacity:0}
+.t-onb.s1 .ttl,.t-onb.s1 .lab{opacity:1}
+.t-onb.s2 .phone{transform:none;opacity:.42}
+/* 지금 단계 폰: 위쪽 가장자리를 기준으로 키워(아래로만 커짐) 제목과 겹치지 않게, 살짝만 띄운다 */
+.t-onb .phone.on{transform:translateY(-1cqw) scale(1.06)!important;transform-origin:50% 0;opacity:1!important;z-index:2}
+.t-onb .dot.on{background:var(--orange)!important;transform:scale(1.25)}
+.t-onb.s9 .phone{opacity:1}
+
+/* ===== 6a 시간대 홈 ===== */
+.t-time{background:#FFF1DC;transition:background-color 1.4s ease}
+.t-time.night{background:#241912}
+.t-time .clock{left:7cqw;top:6.5cqw;font-family:var(--f-mono);font-size:10cqw;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--ink);transition:color 1.4s}
+.t-time .what{left:7.4cqw;top:18cqw;font-size:3.6cqw;font-weight:800;letter-spacing:-.04em;color:var(--orange);transition:color 1.4s}
+.t-time .hint{left:7.4cqw;top:23.6cqw;font-size:2.4cqw;color:var(--ink-2);transition:color 1.4s;line-height:1.5}
+.t-time.night .clock{color:#F7EDE2}.t-time.night .what{color:var(--amber)}.t-time.night .hint{color:#BBA996}
+.t-time .phone{--pw:40cqw;left:12cqw;top:34cqw;transition:transform 1s cubic-bezier(.2,1.25,.35,1),opacity .5s}
+.t-time .phone img{transition:opacity .9s ease}
+.t-time .phone .nightimg{opacity:0}
+.t-time.night .phone .nightimg{opacity:1}
+.t-time .row{left:40cqw;top:58cqw;width:56cqw;--r:2.4cqw;transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-time .row.r2{opacity:0;transform:translateX(-14cqw) scale(.6)}
+.t-time.night .row.r1{opacity:0;transform:translateX(-14cqw) scale(.6)}
+.t-time.night .row.r2{opacity:1;transform:none}
+.t-time.s0 .phone{transform:translateY(80cqw);opacity:0}
+.t-time.s0 .row.r1{opacity:0;transform:translateX(-14cqw) scale(.6)}
+.t-time.s1 .phone{transform:none;opacity:1}
+.t-time.s2 .row.r1{opacity:1;transform:none}
+
+/* ===== 6b 카테고리 ===== */
+.t-cat{background:var(--sand)}
+.t-cat .lab{left:7cqw;top:6.5cqw;color:var(--ink-3)}
+.t-cat .word{left:7cqw;top:10.6cqw;height:9cqw;overflow:hidden;font-size:7.4cqw;font-weight:900;letter-spacing:-.05em;line-height:1.2}
+.t-cat .word span{display:block;transition:transform .55s cubic-bezier(.65,0,.35,1),opacity .4s}
+.t-cat .word span.leave{transform:translateY(-110%);opacity:0}
+.t-cat .word span.enter{transform:translateY(110%);opacity:0}
+.t-cat .sub{left:7cqw;top:21cqw;font-size:2.4cqw;color:var(--ink-2);line-height:1.5}
+.t-cat .deck{left:14cqw;top:38cqw;width:56cqw;height:56cqw}
+.t-cat .cc{position:absolute;inset:0;border-radius:6cqw;background:#FFF9F1;box-shadow:0 2cqw 5cqw rgba(110,60,20,.16);display:grid;place-items:center;transition:transform .7s cubic-bezier(.2,1.2,.35,1),opacity .5s;opacity:0;transform:translate(-20cqw,10cqw) rotate(-14deg) scale(.8)}
+.t-cat .cc img{width:78%;height:auto;max-height:78%;object-fit:contain}
+.t-cat .cc.c0{opacity:1;transform:none;z-index:3}
+.t-cat .cc.c1{opacity:1;transform:translate(7cqw,-3cqw) rotate(7deg) scale(.92);z-index:2}
+.t-cat .cc.c2{opacity:1;transform:translate(13cqw,-6cqw) rotate(14deg) scale(.84);z-index:1}
+.t-cat .cc.c3{opacity:0;transform:translate(17cqw,-8cqw) rotate(20deg) scale(.78);z-index:0}
+.t-cat .jori{left:70cqw;top:72cqw;width:25cqw;animation:bob 2.4s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes bob{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(3deg) translateY(-1.5cqw)}}
+
+/* ===== 7 검색 ===== */
+.t-search{background:var(--cream)}
+.t-search .right{left:50cqw;top:0;width:50cqw;height:100%;background:radial-gradient(ellipse 40cqw 30cqw at 60% 60%,#F6C089,#EFA562 60%,#E58D45)}
+.t-search .lab{left:5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-search .ttl{left:5cqw;top:8.4cqw;font-size:3.9cqw;font-weight:800;letter-spacing:-.05em;line-height:1.25}
+.t-search .ttl em{font-style:normal;color:var(--orange)}
+.t-search .bar{left:5cqw;top:25.5cqw;width:40cqw;height:5.4cqw;border-radius:2.7cqw;background:#fff;box-shadow:0 .6cqw 1.6cqw rgba(110,60,20,.12),inset 0 0 0 max(1px,.12cqw) #F1DCC4;display:flex;align-items:center;padding:0 .8cqw 0 2cqw;gap:1cqw}
+.t-search .bar .q{flex:1;font-size:1.85cqw;white-space:nowrap;overflow:hidden;color:var(--ink)}
+.t-search .bar .q::after{content:"";display:inline-block;width:max(1px,.14cqw);height:2.1cqw;background:var(--orange);margin-left:.15cqw;vertical-align:-.35cqw;animation:blink 1s steps(1) infinite}
+.t-search .bar .go{width:3.8cqw;height:3.8cqw;border-radius:50%;background:var(--orange);display:grid;place-items:center}
+.t-search .bar svg{width:1.8cqw;height:1.8cqw}
+@keyframes blink{50%{opacity:0}}
+.t-search .cond{left:5cqw;top:32.6cqw;width:40cqw;--r:1.6cqw;transition:transform .7s cubic-bezier(.2,1.3,.35,1),opacity .35s}
+.t-search .cond img+img{position:absolute;inset:0}
+.t-search .note{left:5cqw;top:46.5cqw;width:40cqw;font-size:1.4cqw;line-height:1.6;color:var(--ink-2)}
+.t-search .phone{--pw:21cqw;left:65cqw;top:6cqw;transform:rotate(-6deg);transition:transform .9s cubic-bezier(.2,1.2,.35,1)}
+.t-search .phone .scr img{transition:transform 1.2s cubic-bezier(.65,0,.35,1),opacity .5s}
+.t-search .jori{left:85.5cqw;top:30cqw;width:12cqw;transform:rotate(8deg);transition:transform .8s cubic-bezier(.2,1.4,.4,1)}
+.t-search.s0 .cond{opacity:0;transform:translateY(-2cqw) scale(.94)}
+.t-search.s0 .phone{transform:translateY(40cqw) rotate(-6deg)}
+.t-search.s0 .jori{transform:translateY(24cqw) rotate(8deg)}
+.t-search.s1 .phone{transform:rotate(-6deg)}
+.t-search.s2 .cond{opacity:1;transform:none}
+.t-search.s2 .jori{transform:rotate(8deg)}
+.t-search .phone .scr img.alt{opacity:0}
+.t-search.menu .phone .scr img.alt{opacity:1}
+.t-search.menu .phone .scr img.main{opacity:0}
+.t-search .cond .alt{opacity:0}
+.t-search.menu .cond .alt{opacity:1}
+.t-search.menu .cond .main{opacity:0}
+
+/* ===== 8 유튜브 ===== */
+.t-yt{background:var(--milk)}
+.t-yt .grid{left:2cqw;top:0;width:44cqw;height:100%;display:grid;grid-template-columns:repeat(3,13.6cqw);gap:1cqw;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.08),rgba(0,0,0,1) 70%);mask-image:linear-gradient(90deg,rgba(0,0,0,.08),rgba(0,0,0,1) 70%)}
+.t-yt .col{display:grid;gap:1cqw;align-content:start;animation:rise 22s linear infinite;will-change:transform}
+.t-yt .col:nth-child(2){animation-duration:26s;margin-top:-4cqw}
+.t-yt .col:nth-child(3){animation-duration:19s;margin-top:-2cqw}
+.t-yt .col img{width:13.6cqw;aspect-ratio:16/9;object-fit:cover;border-radius:.8cqw}
+@keyframes rise{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.t-yt .phone{--pw:22cqw;left:39cqw;top:3.6cqw;z-index:2}
+.t-yt .scr{font-size:1cqw;color:var(--ink)}
+.t-yt .vw{position:absolute;inset:0;padding:5.2cqw 1.5cqw 1.5cqw;display:flex;flex-direction:column;gap:1cqw;transition:opacity .5s}
+.t-yt .vw h4{margin:0;font-size:1.75cqw;line-height:1.3;letter-spacing:-.03em;font-weight:800}
+.t-yt .vw .s{font-size:.95cqw;color:#8B7E72}
+.t-yt .vw .th{width:100%;aspect-ratio:16/9;border-radius:.9cqw;object-fit:cover;position:static}
+.t-yt .vw .vt{font-size:1cqw;font-weight:700;line-height:1.4}
+.t-yt .vw .box{background:#FFF3E4;border-radius:.9cqw;padding:1cqw 1.1cqw;display:grid;gap:.45cqw;font-size:.92cqw;line-height:1.45}
+.t-yt .vw .box b{font-size:1.15cqw}
+.t-yt .vw .box span{color:#6F6358}
+.t-yt .vw .box em{font-style:normal;color:var(--orange);font-weight:700;margin-right:.4cqw}
+.t-yt .vw .warn{font-size:.85cqw;color:#A3968A}
+.t-yt .vw .btn{margin-top:auto;background:var(--orange);color:#fff;font-weight:700;text-align:center;border-radius:1.2cqw;padding:1.1cqw 0;font-size:1.1cqw}
+.t-yt .paste{opacity:0}
+.t-yt .paste .btn{margin-top:1cqw}
+.t-yt .url{background:#fff;border-radius:1cqw;box-shadow:inset 0 0 0 max(1px,.1cqw) #EAD9C6;padding:1cqw 1.1cqw;font-size:1cqw;color:#2A1D12;font-family:var(--f-mono)}
+.t-yt.s0 .paste{opacity:1}
+.t-yt.s3 .paste{opacity:0}
+.t-yt .prog{justify-content:center;align-items:stretch}
+.t-yt .prog .pv{width:100%;aspect-ratio:16/9;border-radius:.9cqw;object-fit:cover;position:static;filter:saturate(.6) brightness(.95)}
+.t-yt .prog ol{list-style:none;margin:.6cqw 0 0;padding:0;display:grid;gap:.8cqw}
+.t-yt .prog li{display:flex;align-items:center;gap:.8cqw;font-size:1.15cqw;color:#B3A699;transition:color .3s}
+.t-yt .prog li i{width:1.4cqw;height:1.4cqw;border-radius:50%;border:max(1px,.14cqw) solid #E2D3C2;transition:background .3s,border-color .3s}
+.t-yt .prog li.on{color:var(--ink);font-weight:700}
+.t-yt .prog li.on i{background:var(--orange);border-color:var(--orange)}
+.t-yt .fly{left:31.2cqw;top:23cqw;width:13.6cqw;aspect-ratio:16/9;object-fit:cover;border-radius:.8cqw;z-index:3;box-shadow:0 1cqw 2.4cqw rgba(60,30,5,.3);transition:transform .9s cubic-bezier(.65,0,.35,1),opacity .3s}
+.t-yt .recipes{left:64.5cqw;top:18.5cqw;width:33cqw;display:grid;gap:3.6cqw;font-size:1.12cqw;line-height:1.75;color:#9C9086}
+.t-yt .recipes b{display:block;color:#6F6358;font-size:1.3cqw}
+.t-yt .recipes p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-yt .recipes > div{position:relative;transition:clip-path .9s cubic-bezier(.65,0,.35,1),opacity .4s;clip-path:inset(0 0 0 0)}
+.t-yt .recipes > div::before{content:"";position:absolute;right:calc(100% + 1cqw);top:.9cqw;width:3.4cqw;height:max(1px,.12cqw);background:linear-gradient(90deg,rgba(238,116,19,0),rgba(238,116,19,.45))}
+.t-yt .more{left:79cqw;top:50cqw;display:grid;gap:.6cqw;justify-items:center;transition:opacity .4s}
+.t-yt .more i{width:.55cqw;height:.55cqw;border-radius:50%;background:#C9BBAC}
+.t-yt.s0 .res{opacity:0}.t-yt.s0 .prog{opacity:0}
+.t-yt.s0 .recipes > div{clip-path:inset(0 100% 0 0)}
+.t-yt.s0 .more{opacity:0}
+.t-yt.s0 .fly{opacity:0;transform:none}
+.t-yt.s1 .fly{opacity:1;transform:scale(1.15)}
+.t-yt.s2 .fly{transform:translate(12cqw,-1.3cqw) scale(1.35);opacity:1}
+.t-yt.s3 .fly{opacity:0;transition:opacity .25s}
+.t-yt.s3 .prog{opacity:1}
+.t-yt.s4 .prog{opacity:0}
+.t-yt.s4 .res{opacity:1}
+.t-yt.s5 .recipes > div:nth-child(1){clip-path:inset(0 0 0 0)}
+.t-yt.s6 .recipes > div:nth-child(2){clip-path:inset(0 0 0 0)}
+.t-yt.s7 .recipes > div:nth-child(3){clip-path:inset(0 0 0 0)}
+.t-yt.s7 .more{opacity:1}
+
+/* ===== 9a 재료 바꾸기 ===== */
+.t-swap{background:var(--cream)}
+.t-swap .lab{left:7cqw;top:6.5cqw;color:var(--ink-3)}
+.t-swap .ttl{left:7cqw;top:10.4cqw;font-size:4.4cqw;font-weight:800;letter-spacing:-.05em;line-height:1.28}
+.t-swap .pick{left:7cqw;top:26cqw;width:44cqw;--r:3cqw}
+.t-swap .pick .chk{position:absolute;left:9.6%;top:29.45%;width:4.9%;aspect-ratio:1;border-radius:50%;background:var(--orange);display:grid;place-items:center;transform:scale(0);transition:transform .35s cubic-bezier(.2,1.6,.4,1)}
+.t-swap .pick .chk svg{width:60%;height:60%}
+.t-swap .pick .rowhl{position:absolute;left:6.1%;top:27.5%;width:87.9%;height:7.2%;border-radius:1.6cqw;box-shadow:0 0 0 max(1px,.32cqw) var(--orange);opacity:0;transition:opacity .3s}
+.t-swap .finger{left:11cqw;top:34.5cqw;width:11cqw;z-index:3;transition:transform .5s cubic-bezier(.65,0,.35,1),opacity .3s}
+.t-swap .rip{left:12.3cqw;top:47.4cqw;width:6cqw;height:6cqw;margin:-3cqw 0 0 -3cqw;border-radius:50%;border:max(1px,.4cqw) solid var(--orange);opacity:0;z-index:2}
+.t-swap .prev{left:53cqw;top:34cqw;width:41cqw;--r:3cqw;transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-swap .sent{left:7cqw;right:7cqw;top:95cqw;display:flex;align-items:center;gap:2cqw;background:#fff;border-radius:3cqw;padding:2.2cqw 3cqw;box-shadow:0 1.4cqw 3.4cqw rgba(110,60,20,.14);font-size:3.6cqw;font-weight:700;letter-spacing:-.03em;white-space:nowrap;transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-swap .sent .no{width:5cqw;height:5cqw;border-radius:50%;background:#FFE9D2;color:var(--orange);display:grid;place-items:center;font-size:2.8cqw;flex:none}
+.t-swap .flip{display:inline-grid;vertical-align:bottom;perspective:30cqw}
+.t-swap .flip span{grid-area:1/1;transition:transform .6s cubic-bezier(.65,0,.35,1),opacity .3s;backface-visibility:hidden}
+.t-swap .flip .fa{transform:rotateX(90deg);opacity:0}
+.t-swap .flip .fb{color:var(--orange)}
+.t-swap.s0 .pick{opacity:0;transform:translateY(6cqw)}
+.t-swap .pick{transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-swap.s0 .finger{opacity:0;transform:translate(20cqw,30cqw)}
+.t-swap.s0 .prev{opacity:0;transform:translateX(30cqw) rotate(8deg)}
+.t-swap.s0 .sent{opacity:0;transform:translateY(12cqw)}
+.t-swap.s0 .flip .fa{transform:none;opacity:1}
+.t-swap.s0 .flip .fb{transform:rotateX(-90deg);opacity:0}
+.t-swap.s1 .pick{opacity:1;transform:none}
+.t-swap.s2 .finger{opacity:1;transform:none}
+.t-swap.s3 .finger{transform:translateY(.8cqw) scale(.95)}
+.t-swap.s3 .rip{animation:ripple .7s ease-out}
+.t-swap.s3 .pick .chk{transform:scale(1)}
+.t-swap.s3 .pick .rowhl{opacity:1}
+.t-swap.s4 .finger{opacity:0;transform:translate(-6cqw,30cqw)}
+.t-swap.s4 .prev{opacity:1;transform:none}
+.t-swap.s5 .sent{opacity:1;transform:none}
+.t-swap.s6 .flip .fa{transform:rotateX(90deg);opacity:0}
+.t-swap.s6 .flip .fb{transform:none;opacity:1}
+@keyframes ripple{0%{transform:scale(.3);opacity:.9}100%{transform:scale(2.2);opacity:0}}
+
+/* ===== 9b 내 주방 ===== */
+.t-kit{background:#F6E6D3}
+.t-kit .lab{left:7cqw;top:6.5cqw;color:var(--ink-3)}
+.t-kit .ttl{left:7cqw;top:10.4cqw;font-size:4.4cqw;font-weight:800;letter-spacing:-.05em;line-height:1.28}
+.t-kit .kit{left:7cqw;top:30cqw;width:40cqw;--r:3cqw;transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-kit svg.wires{left:0;top:0;width:100%;height:100%;overflow:visible;z-index:2;pointer-events:none}
+.t-kit .wires path{fill:none;stroke:var(--orange);stroke-width:.45;stroke-linecap:round}
+.t-kit .wires circle{fill:var(--orange)}
+.t-kit .wires g{transition:opacity .2s}
+.t-kit .wires .draw{stroke-dasharray:20;stroke-dashoffset:0;transition:stroke-dashoffset .7s cubic-bezier(.65,0,.35,1)}
+.t-kit .tip{left:54cqw;width:41cqw;--r:1.6cqw;transition:transform .7s cubic-bezier(.2,1.3,.35,1),opacity .35s}
+.t-kit .ring{position:absolute;border-radius:99px;box-shadow:0 0 0 max(1px,.35cqw) var(--orange);opacity:0;transition:opacity .3s}
+.t-kit .r1{left:28.4%;top:20.2%;width:22%;height:7.6%;border-radius:1.4cqw}
+.t-kit .r2{left:4.8%;top:63.5%;width:16.6%;height:6.9%}
+.t-kit .r3{left:4.8%;top:76.2%;width:20.2%;height:6.9%}
+.t-kit .r4{left:4.8%;top:88.9%;width:20.2%;height:6.9%}
+.t-kit.s2:not(.s3) .r1,.t-kit.s3:not(.s4) .r2,.t-kit.s4:not(.s5) .r3,.t-kit.s5 .r4{opacity:1}
+.t-kit .ktag{left:54.4cqw;font-size:2.1cqw;font-weight:800;color:var(--orange-d);letter-spacing:-.02em;transition:opacity .35s,transform .5s cubic-bezier(.2,1.3,.35,1)}
+.t-kit .t1{top:30.6cqw}.t-kit .t2{top:46.1cqw}.t-kit .t3{top:61.6cqw}.t-kit .t4{top:77.1cqw}
+.t-kit.s0 .ktag{opacity:0;transform:translateX(4cqw)}
+.t-kit.s2 .t1,.t-kit.s3 .t2,.t-kit.s4 .t3,.t-kit.s5 .t4{opacity:1;transform:none;transition-delay:.3s}
+.t-kit .k1{top:34.5cqw}.t-kit .k2{top:50cqw}.t-kit .k3{top:65.5cqw}.t-kit .k4{top:81cqw}
+.t-kit.s0 .kit{opacity:0;transform:translateY(8cqw)}
+.t-kit.s0 .tip{opacity:0;transform:translateX(6cqw)}
+.t-kit.s0 .wires g{opacity:0}
+.t-kit.s0 .wires .draw{stroke-dashoffset:20}
+.t-kit.s1 .kit{opacity:1;transform:none}
+.t-kit.s2 .w1,.t-kit.s3 .w2,.t-kit.s4 .w3,.t-kit.s5 .w4{opacity:1}
+.t-kit.s2 .w1 .draw,.t-kit.s3 .w2 .draw,.t-kit.s4 .w3 .draw,.t-kit.s5 .w4 .draw{stroke-dashoffset:0}
+.t-kit.s2 .k1,.t-kit.s3 .k2,.t-kit.s4 .k3,.t-kit.s5 .k4{opacity:1;transform:none;transition-delay:.35s}
+
+/* ===== 10 단계별 요리 ===== */
+.t-steps{background:#FBE9D6}
+.t-steps .lab{left:5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-steps .lab{left:5cqw;top:3.8cqw}
+.t-steps .ttl{left:5cqw;top:6.4cqw;font-size:2.8cqw;font-weight:800;letter-spacing:-.05em;line-height:1.28}
+.t-steps .rail{left:0;top:0;width:100%;height:100%}
+.t-steps .sc{position:absolute;left:35cqw;top:15cqw;width:30cqw;--r:1.8cqw;transition:transform .9s cubic-bezier(.65,0,.35,1),opacity .6s;transform:translateX(var(--x,0)) scale(var(--k,1));transform-origin:50% 0}
+.t-steps .sc[data-p="0"]{--x:0cqw;--k:1;opacity:1;z-index:3}
+.t-steps .sc[data-p="1"]{--x:35cqw;--k:.8;opacity:.45;z-index:2}
+.t-steps .sc[data-p="2"]{--x:70cqw;--k:.8;opacity:0;z-index:1}
+.t-steps .sc[data-p^="-"]{--x:-70cqw;--k:.8;opacity:0;z-index:1}
+.t-steps .sc[data-p="-1"]{--x:-35cqw;--k:.8;opacity:.45;z-index:2}
+.t-steps .tipc{left:60cqw;top:31cqw;width:27cqw;--r:1.4cqw;z-index:4;transition:transform .7s cubic-bezier(.2,1.4,.35,1),opacity .35s}
+.t-steps .timer{left:67cqw;top:17cqw;width:22cqw;padding:1.4cqw 1.8cqw;border-radius:2cqw;background:#2A1D12;color:#FFF3E6;z-index:4;display:flex;align-items:center;gap:1.4cqw;box-shadow:0 1.4cqw 3cqw rgba(60,30,5,.25);transition:transform .7s cubic-bezier(.2,1.3,.35,1),opacity .35s}
+.t-steps .timer svg{width:5cqw;height:5cqw;flex:none;transform:rotate(-90deg)}
+.t-steps .timer circle{fill:none;stroke-width:3}
+.t-steps .timer .tr{stroke:#4A3828}
+.t-steps .timer .pr{stroke:var(--orange);stroke-linecap:round;stroke-dasharray:var(--p,99.4) 100;transition:stroke-dasharray 1s linear}
+.t-steps .timer b{font-family:var(--f-mono);font-weight:500;font-size:4cqw;letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.t-steps .timer span{display:block;font-size:1.1cqw;color:#BBA996;margin-top:.4cqw}
+.t-steps.s0 .tipc{opacity:0;transform:translateY(2cqw) scale(.9)}
+.t-steps.s0 .timer{opacity:0;transform:translateY(3cqw) scale(.9)}
+.t-steps.s4 .tipc{opacity:1;transform:none}
+.t-steps.s5 .timer{opacity:1;transform:none}
+
+/* ===== 11a 대화 ===== */
+.t-chat{background:var(--cream)}
+.t-chat .lab{left:7cqw;top:6.5cqw;color:var(--ink-3)}
+.t-chat .ttl{left:7cqw;top:10.4cqw;font-size:4.4cqw;font-weight:800;letter-spacing:-.05em;line-height:1.28}
+.t-chat .screen{left:7cqw;top:26cqw;width:51cqw;--r:3.4cqw;overflow:hidden;background:#FFFBF5}
+.t-chat .screen img{transition:opacity .5s}
+.t-chat .screen img+img{position:absolute;left:0;top:0}
+.t-chat .screen .i2,.t-chat .screen .i3{opacity:0}
+.t-chat.ans .screen .i2{opacity:1}
+.t-chat.voc .screen .i3{opacity:1}
+.t-chat .faq{left:53cqw;top:38cqw;width:38cqw;--r:2.4cqw}
+.t-chat .bq{left:30cqw;top:68cqw;width:62cqw;--r:2.4cqw}
+.t-chat .ans-p{left:26cqw;top:78cqw;width:66cqw;--r:2.4cqw}
+.t-chat .voice{left:26cqw;top:92cqw;width:66cqw;--r:3cqw}
+.t-chat .faq,.t-chat .bq,.t-chat .ans-p,.t-chat .voice{transition:transform .7s cubic-bezier(.2,1.3,.35,1),opacity .35s}
+.t-chat .eq{position:absolute;left:61%;top:50%;display:flex;gap:.6cqw;align-items:center;transform:translateY(-50%)}
+.t-chat .eq i{width:.7cqw;height:3cqw;border-radius:.35cqw;background:var(--orange);animation:eq .9s ease-in-out infinite}
+.t-chat .eq i:nth-child(2){animation-delay:.15s}.t-chat .eq i:nth-child(3){animation-delay:.3s}.t-chat .eq i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.t-chat.s0 .screen{opacity:0;transform:translateY(6cqw)}
+.t-chat .screen{transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-chat.s0 .faq{opacity:0;transform:translate(-8cqw,4cqw) scale(.7)}
+.t-chat.s0 .bq{opacity:0;transform:translateY(8cqw)}
+.t-chat.s0 .ans-p{opacity:0;transform:translateY(4cqw) scale(.9)}
+.t-chat.s0 .voice{opacity:0;transform:translateY(6cqw)}
+.t-chat.s1 .screen{opacity:1;transform:none}
+.t-chat.s2 .faq{opacity:1;transform:none}
+.t-chat.s3 .faq{opacity:0;transform:translate(-4cqw,-2cqw) scale(.8)}
+.t-chat.s3 .bq{opacity:1;transform:none}
+.t-chat.s4 .ans-p{opacity:1;transform:none}
+.t-chat.s5 .bq,.t-chat.s5 .ans-p{opacity:0;transform:translateY(-4cqw)}
+.t-chat.s5 .voice{opacity:1;transform:none}
+
+/* ===== 11b 카메라 ===== */
+.t-cam{background:var(--night);color:#F7EDE2}
+.t-cam .lab{left:7cqw;top:6.5cqw;color:#8D7B6A}
+.t-cam .ask{left:7cqw;top:10.4cqw;font-size:6.6cqw;font-weight:900;letter-spacing:-.05em;line-height:1.2;white-space:nowrap}
+.t-cam .ask .cur{display:inline-block;width:max(1px,.4cqw);height:6cqw;background:var(--amber);margin-left:.4cqw;vertical-align:-.6cqw;animation:blink 1s steps(1) infinite}
+.t-cam .view{left:15cqw;top:25cqw;width:70cqw;--r:3.4cqw;overflow:hidden;transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .4s}
+.t-cam .scan{position:absolute;left:8%;right:8%;top:10%;height:max(1px,.3cqw);background:linear-gradient(90deg,rgba(246,169,59,0),rgba(246,169,59,.9),rgba(246,169,59,0));box-shadow:0 0 2cqw rgba(246,169,59,.6);opacity:0}
+.t-cam.s2 .scan{opacity:1;animation:scan 2.2s ease-in-out infinite}
+@keyframes scan{0%,100%{top:12%}50%{top:62%}}
+.t-cam .finger{left:40.2cqw;top:54.9cqw;width:12cqw;z-index:3;transition:transform .45s cubic-bezier(.65,0,.35,1),opacity .3s}
+.t-cam .rip{left:41.6cqw;top:69cqw;width:7cqw;height:7cqw;margin:-3.5cqw 0 0 -3.5cqw;border-radius:50%;border:max(1px,.4cqw) solid #FFF7EC;opacity:0;z-index:2}
+.t-cam .tok{left:22cqw;top:37cqw;z-index:3;background:#FFF7EC;color:#2A1D12;font-size:2.6cqw;font-weight:800;border-radius:99px;padding:1cqw 2.2cqw;white-space:nowrap;box-shadow:0 1cqw 2.4cqw rgba(0,0,0,.3);transition:transform .6s cubic-bezier(.2,1.5,.35,1),opacity .3s}
+.t-cam .tipc{left:12cqw;top:91cqw;width:76cqw;--r:3cqw;z-index:4;transition:transform .8s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-cam .cj{position:absolute;left:87.3%;top:55.1%;height:36%;aspect-ratio:412/900;transform:translate(-50%,-100%);z-index:2;transition:left 1.6s cubic-bezier(.45,0,.55,1),top 1.6s cubic-bezier(.45,0,.55,1)}
+.t-cam .cj img{position:absolute;left:50%;bottom:0;height:100%;width:auto;max-width:none;border-radius:0;transform:translateX(-50%);transition:opacity .15s}
+.t-cam .cj .wk{opacity:0}
+.t-cam.walk .cj .st{opacity:0}
+.t-cam.walk .cj .wk{opacity:1;animation:wbob .38s ease-in-out infinite}
+.t-cam.back .cj img{transform:translateX(-50%) scaleX(-1)}
+@keyframes wbob{0%,100%{margin-bottom:0}50%{margin-bottom:1.2%}}
+.t-cam.s5 .cj{left:38%;top:58%}
+.t-cam.s0 .view{opacity:0;transform:scale(.9)}
+.t-cam.s0 .finger{opacity:0;transform:translate(14cqw,20cqw)}
+.t-cam.s0 .tok{opacity:0;transform:scale(.6) translateX(6cqw)}
+.t-cam.s0 .tipc{opacity:0;transform:translateY(16cqw)}
+.t-cam.s1 .view{opacity:1;transform:none}
+.t-cam.s3 .finger{opacity:1;transform:none}
+.t-cam.s4 .rip{animation:ripple .55s ease-out}
+.t-cam.s4 .finger{animation:tap2 .6s ease-in-out}
+@keyframes tap2{0%,100%{transform:none}25%,75%{transform:translateY(.8cqw) scale(.95)}50%{transform:none}}
+.t-cam.s5 .finger{opacity:0;transform:translate(10cqw,14cqw);transition-delay:.6s}
+.t-cam.s5 .tok{opacity:1;transform:none}
+.t-cam.s6 .tipc{opacity:1;transform:none}
+
+/* ===== 12 일기장 ===== */
+.t-diary{background:var(--cream)}
+.t-diary .lab{left:5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-diary .phone{--pw:17cqw;left:5cqw;top:8.5cqw;transition:transform .9s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-diary .stars{left:5.4cqw;top:47.2cqw;display:flex;gap:.5cqw;align-items:center}
+.t-diary .stars svg{width:2.7cqw;height:2.7cqw}
+.t-diary .stars path{fill:#EADBC9;transition:fill .25s,transform .35s cubic-bezier(.2,1.8,.4,1);transform-origin:50% 55%}
+.t-diary .stars .on path{fill:var(--orange)}
+.t-diary .stars span{font-size:1.25cqw;color:var(--ink-2);margin-left:.8cqw;white-space:nowrap}
+.t-diary .cal{left:27cqw;top:8.5cqw;width:27cqw;--r:1.8cqw;transition:transform .9s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-diary .dc{top:12cqw;width:15cqw;--r:1.6cqw;transition:transform .9s cubic-bezier(.2,1.2,.35,1),opacity .4s}
+.t-diary .dc1{left:58cqw;transform:rotate(-6deg)}
+.t-diary .dc2{left:70cqw;transform:translateY(1.6cqw) rotate(1deg);z-index:2}
+.t-diary .dc3{left:82cqw;transform:rotate(7deg)}
+.t-diary .save{left:66cqw;top:42cqw;z-index:3;background:#2A1D12;color:#FFF3E6;border-radius:1.6cqw;padding:1.3cqw 1.8cqw;display:flex;gap:1.4cqw;align-items:center;box-shadow:0 1.2cqw 2.6cqw rgba(60,30,5,.25);transition:transform .7s cubic-bezier(.2,1.4,.35,1),opacity .35s}
+.t-diary .save .badge{font-size:1.15cqw;font-weight:800;color:#2A1D12;background:var(--amber);border-radius:.6cqw;padding:.35cqw .8cqw;white-space:nowrap}
+.t-diary .save b{font-family:var(--f-mono);font-weight:500;font-size:2.8cqw;font-variant-numeric:tabular-nums;white-space:nowrap}
+.t-diary .save span{display:block;font-size:1cqw;color:#BBA996}
+.t-diary .jori{left:49cqw;top:33cqw;width:10.5cqw;z-index:3;transition:transform .8s cubic-bezier(.2,1.4,.4,1),opacity .3s}
+.t-diary.s0 .phone{opacity:0;transform:translateY(40cqw)}
+.t-diary.s0 .cal{opacity:0;transform:translateY(8cqw) rotate(-4deg)}
+.t-diary.s0 .dc{opacity:0;transform:translate(-14cqw,4cqw) rotate(-12deg)}
+.t-diary.s0 .dc2{transform:translate(-26cqw,4cqw) rotate(-12deg)}
+.t-diary.s0 .dc3{transform:translate(-38cqw,4cqw) rotate(-12deg)}
+.t-diary.s0 .save{opacity:0;transform:translateY(3cqw) scale(.9)}
+.t-diary.s0 .jori{opacity:0;transform:translateY(16cqw)}
+.t-diary.s1 .phone{opacity:1;transform:none}
+.t-diary.s3 .cal{opacity:1;transform:none}
+.t-diary.s4 .dc{opacity:1}
+.t-diary.s4 .dc1{transform:rotate(-6deg)}
+.t-diary.s4 .dc2{transform:translateY(1.6cqw) rotate(1deg);transition-delay:.12s}
+.t-diary.s4 .dc3{transform:rotate(7deg);transition-delay:.24s}
+.t-diary.s5 .save{opacity:1;transform:none}
+.t-diary.s5 .jori{opacity:1;transform:none}
+.t-diary.s6 .jori{animation:hop2 1.8s ease-in-out infinite}
+@keyframes hop2{0%,100%{transform:none}50%{transform:translateY(-1.4cqw) rotate(-3deg)}}
+
+/* ===== 13a 마이페이지 ===== */
+.t-my{background:#F6E6D3}
+.t-my .lab{left:7cqw;top:6.5cqw;color:var(--ink-3)}
+.t-my .ttl{left:7cqw;top:10.4cqw;font-size:4.4cqw;font-weight:800;letter-spacing:-.05em;line-height:1.28}
+.t-my .fan{left:0;top:0;width:100%;height:100%}
+.t-my .fc{position:absolute;left:25cqw;top:34cqw;width:50cqw;--r:3.2cqw;overflow:hidden;background:#FFFBF5;transform-origin:50% 120%;transition:transform .9s cubic-bezier(.2,1.15,.35,1),opacity .5s}
+.t-my .fc[data-p="0"]{transform:none;z-index:3}
+.t-my .fc[data-p="1"]{transform:translateX(16cqw) rotate(9deg) scale(.9);z-index:2}
+.t-my .fc[data-p="2"]{transform:translateX(-16cqw) rotate(-9deg) scale(.9);z-index:1}
+.t-my .fc img{width:100%;height:auto}
+.t-my .pill{left:50cqw;top:30cqw;z-index:5;background:var(--orange);color:#fff;font-size:2.3cqw;font-weight:700;border-radius:99px;padding:1cqw 2.2cqw;box-shadow:0 1cqw 2cqw rgba(200,80,0,.3);white-space:nowrap;transition:transform .6s cubic-bezier(.2,1.5,.35,1),opacity .3s}
+.t-my.s0 .pill{opacity:0;transform:scale(.6)}
+.t-my.s2 .pill{opacity:1;transform:none}
+
+/* ===== 13b 순환 ===== */
+.t-loop{background:var(--orange);color:#FFF7EC}
+.t-loop .lab{left:7cqw;top:6.5cqw;color:#FFE1C2}
+.t-loop .ring{left:19cqw;top:30cqw;width:62cqw;height:62cqw;border-radius:50%;border:max(1px,.35cqw) dashed rgba(255,247,236,.45)}
+.t-loop .orbit{left:19cqw;top:30cqw;width:62cqw;height:62cqw;animation:spin 7.5s linear infinite}
+.t-loop .orbit i{position:absolute;left:50%;top:0;width:3.6cqw;height:3.6cqw;margin:-1.8cqw 0 0 -1.8cqw;border-radius:50%;background:#FFF7EC;box-shadow:0 0 2.4cqw rgba(255,247,236,.9)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.t-loop .node{width:15cqw;height:15cqw;margin:-7.5cqw 0 0 -7.5cqw;border-radius:50%;background:#FFF7EC;color:var(--orange-d);display:grid;place-items:center;font-size:3.6cqw;font-weight:900;letter-spacing:-.04em;animation:pulse 7.5s linear infinite;box-shadow:0 1.2cqw 2.6cqw rgba(120,40,0,.25)}
+.t-loop .n1{left:50cqw;top:30cqw;animation-delay:0s}
+.t-loop .n2{left:76.85cqw;top:76.5cqw;animation-delay:-5s}
+.t-loop .n3{left:23.15cqw;top:76.5cqw;animation-delay:-2.5s}
+@keyframes pulse{0%,8%{transform:scale(1.14)}16%,100%{transform:scale(1)}}
+.t-loop .mid{left:19cqw;top:30cqw;width:62cqw;height:62cqw;display:grid;place-content:center;text-align:center;font-size:5cqw;font-weight:900;letter-spacing:-.05em;line-height:1.25}
+.t-loop .note{left:7cqw;right:7cqw;bottom:6cqw;font-size:2.3cqw;color:#FFE1C2;line-height:1.5}
+
+/* ===== 0 배너 ===== */
+.t-banner{aspect-ratio:3840/1260;background:#F6DDBF}
+.t-banner .belt{left:-12cqw;top:-9cqw;width:136cqw;display:grid;gap:1.4cqw;transform:rotate(-7deg)}
+/* 흐림은 띠 전체가 아니라 사진마다 한 번만(띠가 움직일 때마다 다시 흐리게 그리지 않아 아이패드에서 덜 끊긴다) */
+.t-banner .row{display:flex;gap:1.4cqw;width:max-content;animation:belt 60s linear infinite;will-change:transform}
+.t-banner .row.r2{animation-direction:reverse;margin-left:-7cqw}
+.t-banner .row img{width:11cqw;height:auto;border-radius:1.4cqw;box-shadow:0 .8cqw 2cqw rgba(110,50,10,.16);filter:blur(.22cqw) saturate(.9)}
+@keyframes belt{to{transform:translateX(-50%)}}
+.t-banner .veil{inset:0;background:radial-gradient(ellipse 34cqw 17cqw at 50% 50%,rgba(255,247,236,.94),rgba(255,247,236,.72) 55%,rgba(253,235,213,.38))}
+.t-banner .center{left:0;right:0;top:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1cqw}
+.t-banner .icon{width:5.6cqw;height:5.6cqw;border-radius:1.3cqw;box-shadow:0 .6cqw 1.6cqw rgba(110,50,10,.2);transition:transform .7s cubic-bezier(.2,1.6,.4,1),opacity .3s}
+.t-banner .logo{display:flex}
+.t-banner .logo img{height:auto;transition:transform .9s cubic-bezier(.2,1.25,.35,1),opacity .4s}
+.t-banner .logo img:nth-child(1){width:7.15cqw}.t-banner .logo img:nth-child(2){width:6.71cqw}.t-banner .logo img:nth-child(3){width:7.12cqw}.t-banner .logo img:nth-child(4){width:7.01cqw}
+.t-banner .sub{font-size:1.45cqw;font-weight:500;color:#6F6358;letter-spacing:-.02em;min-height:1.6em}
+.t-banner.s0 .icon{transform:scale(0) rotate(-20deg);opacity:0}
+.t-banner.s0 .logo img{transform:translateY(-14cqw);opacity:0}
+.t-banner.s0 .logo img:nth-child(2){transition-delay:.07s}.t-banner.s0 .logo img:nth-child(3){transition-delay:.14s}.t-banner.s0 .logo img:nth-child(4){transition-delay:.21s}
+.t-banner.s1 .icon{transform:none;opacity:1}
+.t-banner.s2 .logo img{transform:none;opacity:1}
+.t-banner .sub{transition:opacity .6s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.t-banner.s0 .sub{opacity:0;transform:translateY(1cqw)}
+.t-banner.s3 .sub{opacity:1;transform:none}
+.t-banner.s3 .logo img:nth-child(3){animation:flick 2.4s ease-in-out infinite;transform-origin:50% 90%}
+
+/* 프레임 장면 제목 */
+.t-frames .lab{left:5cqw;top:3.6cqw;color:#8D7B6A}
+.t-frames .ttl{left:5cqw;top:6.1cqw;font-size:3cqw;font-weight:800;letter-spacing:-.04em;color:#F7EDE2}
+.t-frames .ttl em{font-style:normal;color:var(--amber)}
+.t-frames .sub{left:5cqw;top:10.7cqw;font-size:1.35cqw;color:#A8957F}
+/* 유튜브 장면 제목 */
+.t-yt .lab{left:64.5cqw;top:4.6cqw;color:var(--ink-3)}
+.t-yt .ttl{left:64.5cqw;top:7.2cqw;font-size:2.5cqw;font-weight:800;letter-spacing:-.04em;line-height:1.3}
+
+/* ===== 스크롤로 넘기는 장면 ===== */
+.unit{position:relative}
+.pin{position:sticky;top:var(--hh,56px);container-type:inline-size}
+/* 바탕은 화면 끝까지, 내용(stage)만 가운데 16:9 안에. 짝 패널은 두 내용이 가운데에서 만난다 */
+.scrolly .pin .tile{aspect-ratio:auto;height:var(--ph,56.25vw)}
+.scrolly .pin .tile > .stage{left:50%;right:auto;width:calc(var(--ph,56.25vw) * 16 / 9);max-width:100%;transform:translateX(-50%);container-type:inline-size}
+.scrolly .pin .tile.half > .stage{width:calc(var(--ph,56.25vw) * 8 / 9)}
+.scrolly .pin .pair > .tile:first-child > .stage{left:auto;right:0;transform:none}
+.scrolly .pin .pair > .tile:last-child > .stage{left:0;transform:none}
+.scrolly .t-search{background:linear-gradient(90deg,var(--cream) 50%,#E9974F 50%)}
+.beats{position:absolute;left:50%;bottom:clamp(8px,1.1vw,16px);transform:translateX(-50%);z-index:30;display:flex;gap:5px;padding:6px 9px;border-radius:99px;background:rgba(42,29,18,.55)}
+.beats i{width:clamp(14px,1.8vw,26px);height:3px;border-radius:1cqw;background:#FFF7EC;opacity:.35;transition:opacity .3s}
+.beats i.on{opacity:1}
+
+/* ===== 죠리 3D (캐릭터 보드를 합친 부분) ===== */
+.jb{--j-bg:#ECE7E0;--j-plate:#E3DDD4;--j-ink:#1B1511;--j-ink2:#5A5049;--j-ink3:#8E857C;--j-rule:rgba(27,21,17,.14);--j-ghost:rgba(27,21,17,.055);--j-acc:#E8710F;
+  background:var(--j-bg);color:var(--j-ink);font-family:var(--f-sans)}
+.jb-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:0 3.2vw;height:clamp(640px,56.25vw,1080px);padding:clamp(24px,2.6vw,44px) max(16px,env(safe-area-inset-right,0px),3.4vw) clamp(18px,2vw,32px) max(16px,env(safe-area-inset-left,0px),3.4vw)}
+.jb .col{display:flex;flex-direction:column;min-width:0;min-height:0}
+.jb .small{font-size:12.5px;color:var(--j-ink3)}
+.jb .lab3{font-family:var(--f-mono);font-size:13px;letter-spacing:.04em;color:var(--j-ink3)}
+.jb .stage3d{position:relative;flex:1;min-height:300px;overflow:hidden;border-radius:6px;background:radial-gradient(50% 54% at 50% 46%,rgba(255,255,255,.85),transparent 74%),var(--j-plate)}
+.jb .wordmark{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);margin:0;font-weight:900;font-size:clamp(120px,17vw,340px);line-height:.8;letter-spacing:-.06em;color:var(--j-ghost);white-space:nowrap;user-select:none;pointer-events:none}
+.jb .stage3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.jb .poster{position:absolute;left:50%;top:50%;height:76%;width:auto;max-width:none;transform:translate(-50%,-52%);transition:opacity .6s}
+.jb .stage3d.ready .poster{opacity:0;pointer-events:none}
+.jb .vtop{position:absolute;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;align-items:flex-start;z-index:3;pointer-events:none}
+.jb .vtop>*{pointer-events:auto}
+.jb .live{display:flex;align-items:center;gap:8px;color:var(--j-ink2);font-size:13px}
+.jb .live i{width:6px;height:6px;border-radius:50%;background:var(--j-acc);animation:jblink 2.4s ease-in-out infinite}
+@keyframes jblink{50%{opacity:.25}}
+.jb #vstatus{margin-top:4px}
+.jb .vbtns{display:flex;gap:8px}
+.jb button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.jb .ibtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--j-rule);display:grid;place-items:center;transition:border-color .2s}
+.jb .ibtn:hover{border-color:var(--j-ink3)}
+.jb .ibtn svg{width:14px;height:14px;fill:var(--j-ink)}
+.jb .readout{position:absolute;right:18px;bottom:14px;z-index:3;font-family:var(--f-mono);font-size:clamp(24px,2.4vw,40px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;pointer-events:none}
+.jb .hint{position:absolute;left:18px;bottom:18px;z-index:3;pointer-events:none}
+.jb .hot{position:absolute;z-index:2;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;cursor:help}
+.jb .hot::before{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px rgba(232,113,15,.8),0 1px 4px rgba(0,0,0,.3);opacity:.85;transition:transform .15s,opacity .15s}
+.jb .hot::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;border:1px solid rgba(255,255,255,.7);animation:jping 3.2s ease-out infinite}
+.jb .hot:hover::before,.jb .hot:focus-visible::before{transform:scale(1.6);opacity:1}
+@keyframes jping{0%{transform:scale(1);opacity:.7}60%,100%{transform:scale(3);opacity:0}}
+.jb .modechips{position:absolute;left:50%;top:16px;transform:translateX(-50%);z-index:4;display:flex;gap:2px;padding:4px;border-radius:99px;background:rgba(255,255,255,.66);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 1px 2px rgba(27,21,17,.08)}
+.jb .modechips button{padding:7px 15px;border-radius:99px;font-size:14px;color:var(--j-ink2);white-space:nowrap;transition:background .2s,color .2s}
+.jb .modechips button:hover{color:var(--j-ink)}
+.jb .modechips button[aria-pressed="true"]{background:var(--j-ink);color:#F4EFE8}
+.jb .controls{display:flex;justify-content:space-between;gap:10px 32px;flex-wrap:wrap;align-items:center;padding-top:12px;flex:none}
+.jb .ctl{display:flex;align-items:center;gap:14px;min-width:0}
+.jb .ctl.pose{flex:1;justify-content:flex-start}
+.jb .tabs{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;min-width:0;padding-block:3px}
+.jb .tabs::-webkit-scrollbar{display:none}
+.jb .tabs button{position:relative;flex:none;font-size:14px;color:var(--j-ink3);white-space:nowrap;padding-bottom:4px;transition:color .15s}
+.jb .tabs button:hover,.jb .tabs button[aria-pressed="true"]{color:var(--j-ink)}
+.jb .tabs button[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--j-acc)}
+.jb .ruler{position:relative;height:46px;cursor:ew-resize;touch-action:none;user-select:none;margin-top:4px;flex:none}
+.jb .ruler .base{position:absolute;left:0;right:0;top:16px;height:1px;background:var(--j-rule)}
+.jb .ruler .tick{position:absolute;top:10px;width:1px;height:13px;background:var(--j-ink3)}
+.jb .ruler .tick.minor{top:13px;height:7px;opacity:.45}
+.jb .ruler .deg{position:absolute;top:28px;transform:translateX(-50%);color:var(--j-ink3);font-family:var(--f-mono);font-size:10.5px;font-variant-numeric:tabular-nums}
+.jb .ruler .deg.edge-l{transform:none}.jb .ruler .deg.edge-r{transform:translateX(-100%)}
+.jb .ruler .head{position:absolute;top:3px;width:1.5px;height:26px;margin-left:-.75px;background:var(--j-acc)}
+.jb .ruler .head::before{content:"";position:absolute;left:50%;top:-3px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--j-acc)}
+.jb .idn h2{margin:10px 0 0;font-weight:800;font-size:clamp(40px,4vw,68px);line-height:.95;letter-spacing:-.045em}
+.jb .idn h2 span{margin-left:12px;font-size:.32em;font-weight:500;letter-spacing:-.01em;color:var(--j-ink2);vertical-align:.5em}
+.jb .idn p{margin:14px 0 0;font-size:15px;line-height:1.65;color:var(--j-ink2);max-width:44ch}
+.jb .specs{margin:20px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.jb .specs>div{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--j-rule);font-size:13.5px}
+.jb .specs dt{color:var(--j-ink3)}
+.jb .specs dd{margin:0}
+.jb .swatches{display:flex;gap:5px;padding-top:1px}
+.jb .swatches i{width:15px;height:15px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--j-rule)}
+.jb .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:20px}
+.jb .stat{border-top:1px solid var(--j-rule);padding-top:10px}
+.jb .stat b{display:block;font-weight:300;font-size:clamp(22px,2vw,34px);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.jb .stat .small{display:block;margin-top:8px}
+.jb .turn{display:flex;flex-direction:column;flex:1;min-height:170px;margin-top:22px}
+.jb .eyebrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:10px;border-top:1px solid var(--j-ink)}
+.jb .turn .eyebrow .tabs{gap:14px;padding:0}
+.jb .turn .eyebrow .tabs button{font-size:13px}
+.jb .tgrid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0 6px;margin-top:10px}
+.jb .view{display:flex;flex-direction:column;min-height:0;min-width:0;transition:opacity .35s}
+.jb .view .imgs{position:relative;flex:1;min-height:0}
+.jb .view .imgs img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.jb .turn[data-rows="shaded"] .w,.jb .turn[data-rows="wire"] .s{display:none}
+.jb .turn[data-rows="both"] .view .imgs img{height:calc(50% - 4px)}
+.jb .turn[data-rows="both"] .view .imgs .w{top:auto;bottom:0}
+.jb .view .lab{display:flex;flex-direction:column;align-items:center;gap:1px;padding-top:7px;margin-top:4px;border-top:1px solid var(--j-rule);font-size:12.5px;color:var(--j-ink2)}
+.jb .view .lab .mono{color:var(--j-ink3);font-size:10.5px;font-family:var(--f-mono)}
+.jb .turn.synced .view{opacity:.4}
+.jb .turn.synced .view.on,.jb .turn.synced .view:hover{opacity:1}
+.jb .view.on .lab{border-top-color:var(--j-acc);color:var(--j-ink)}
+#tip{position:fixed;z-index:50;max-width:290px;padding:10px 12px;border-radius:6px;background:#1B1511;color:#F4EFE8;font-size:13px;line-height:1.55;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+#tip.show{opacity:1;transform:none}
+#tip b{display:block;margin-bottom:2px;font-weight:700}
+[data-tip]{cursor:help}
+.jb button[data-tip],.jb [data-angle],[data-action]{cursor:pointer}
+@media (min-width:1101px) and (max-height:860px){.jb .idn p{display:none}.jb .specs,.jb .stats{margin-top:14px}.jb .turn{margin-top:16px}}
+@media (max-width:1100px) and (orientation:portrait),(max-width:760px){
+  .jb-in{grid-template-columns:minmax(0,1fr);height:auto}
+  .jb .stage3d{flex:none;height:70svh;min-height:420px}
+  .jb .col+.col{margin-top:36px}
+  .jb .turn{flex:none;height:300px}
+}
+@media (max-width:760px){
+  .jb .controls{flex-direction:column;align-items:stretch}.jb .ctl.pose{justify-content:flex-start}
+  .jb .specs{grid-template-columns:minmax(0,1fr)}
+  .jb .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .jb .turn{height:auto}
+  .jb .tgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 10px;flex:none}
+  .jb .view .imgs{flex:none;height:150px}
+  .jb .hint,.jb .ruler .deg.odd{display:none}
+  .jb .modechips{top:auto;bottom:56px}
+  .jb .modechips button{padding:6px 11px;font-size:13px}
+}
+
+/* ===== 면 구조 (스크롤) ===== */
+.t-topo{background:#ECE7E0;color:#1B1511}
+.t-topo .lab{left:5cqw;top:4.6cqw;color:#8E857C}
+.t-topo .ttl{left:5cqw;top:7.4cqw;font-size:3cqw;font-weight:800;letter-spacing:-.045em;line-height:1.28}
+.t-topo .lede{left:5cqw;top:16.2cqw;width:37cqw;font-size:1.3cqw;line-height:1.6;color:#5A5049}
+.t-topo .dens{left:5cqw;top:24cqw;width:39cqw;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1cqw}
+.t-topo .dens figure{margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:.8cqw;opacity:.32;transition:opacity .4s}
+.t-topo .dens img{height:17cqw;width:auto;transition:transform .5s cubic-bezier(.2,1.4,.4,1)}
+.t-topo .dens figcaption{width:100%;border-top:max(1px,.08cqw) solid rgba(27,21,17,.18);padding-top:.6cqw;transition:border-color .4s}
+.t-topo .dens b{display:block;font-weight:400;font-size:2.1cqw;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.t-topo .dens span{display:block;font-size:1.05cqw;color:#8E857C}
+.t-topo .dens figure.on{opacity:1}
+.t-topo .dens figure.on img{transform:translateY(-.6cqw) scale(1.04)}
+.t-topo .dens figure.on figcaption{border-top-color:#E8710F}
+.t-topo .note{left:5cqw;top:49.2cqw;font-size:1.2cqw;color:#5A5049;transition:opacity .3s}
+.t-topo .mz{left:47cqw;top:4.6cqw;width:48cqw;height:47cqw;display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:max(1px,.08cqw);background:rgba(27,21,17,.14);border:max(1px,.08cqw) solid rgba(27,21,17,.14)}
+.t-topo .mz div{position:relative;background:#E3DDD4;overflow:hidden;min-width:0;min-height:0}
+.t-topo .mz .face{grid-column:1 / span 2}
+.t-topo .mz img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.t-topo .mz p{position:absolute;left:.8cqw;bottom:.8cqw;z-index:2;padding:.3cqw .7cqw;border-radius:.3cqw;background:rgba(227,221,212,.9);font-size:1.05cqw}
+.t-topo .mz div.zoom img{transform:scale(1.12)}
+
+/* ===== 3D 프린팅 (스크롤) ===== */
+.t-print{background:#F5EEE5;color:#1B1511}
+.t-print .lab{left:5cqw;top:4.6cqw;color:#8E857C}
+.t-print .ttl{left:5cqw;top:7.4cqw;font-size:3cqw;font-weight:800;letter-spacing:-.045em;line-height:1.28}
+.t-print .delta{left:5cqw;top:16.4cqw;display:flex;align-items:baseline;gap:1.2cqw;font-weight:300;font-size:5.4cqw;line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.t-print .delta s{text-decoration:none;color:#A39A90;transition:color .4s}
+.t-print .delta .num{transition:opacity .4s}
+.t-print.s0 .delta s{color:#1B1511}
+.t-print.s0 .delta .num{opacity:0}
+.t-print.s2 .delta s{color:#A39A90}
+.t-print.s2 .delta .num{opacity:1}
+.t-print .delta em{font-style:normal;font-size:1.6cqw;letter-spacing:0;color:#8E857C}
+.t-print .pct{left:5cqw;top:23.6cqw;font-size:1.35cqw;font-weight:700;color:#E8710F;transition:opacity .4s,transform .5s cubic-bezier(.2,1.4,.4,1)}
+.t-print .stepl{left:5cqw;top:27.6cqw;width:36cqw;list-style:none;margin:0;padding:0}
+.t-print .stepl li{display:grid;grid-template-columns:3cqw 1fr;padding:1cqw 0;border-top:max(1px,.08cqw) solid rgba(27,21,17,.14);font-size:1.3cqw;line-height:1.6;color:#8E857C;transition:color .35s}
+.t-print .stepl li::before{content:attr(data-n);font-family:var(--f-mono);font-size:1.05cqw;padding-top:.2cqw}
+.t-print .stepl li b{font-weight:700}
+.t-print .stepl li.on{color:#1B1511}
+.t-print .stepl li.on::before{color:#E8710F}
+.t-print .pic{position:absolute;transition:transform .9s cubic-bezier(.2,1.15,.35,1),opacity .5s}
+.t-print .whole{left:55cqw;top:6cqw;height:41cqw;width:auto}
+.t-print .split{left:47.5cqw;top:8cqw;height:39cqw;width:auto}
+.t-print .jh{left:50cqw;top:12cqw;height:30cqw;width:auto}
+.t-print .jbd{left:72cqw;top:12cqw;height:30cqw;width:auto}
+.t-print .jcap{position:absolute;top:43cqw;font-size:1.2cqw;color:#5A5049;transition:opacity .4s}
+.t-print .jcap.h{left:54cqw}.t-print .jcap.b{left:76cqw}
+.t-print .legend{left:47.5cqw;top:50.4cqw;display:flex;gap:2cqw;font-size:1.1cqw;color:#5A5049}
+.t-print .legend i{display:inline-block;width:.8cqw;height:.8cqw;border-radius:50%;margin-right:.6cqw;vertical-align:.05cqw}
+.t-print .legend button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.t-print.s0 .whole{opacity:0;transform:translateY(6cqw)}
+.t-print.s0 .split,.t-print.s0 .jh,.t-print.s0 .jbd{opacity:0;transform:translateX(8cqw)}
+.t-print.s0 .jcap{opacity:0}
+.t-print.s0 .pct{opacity:0;transform:translateY(1cqw)}
+.t-print.s1 .whole{opacity:1;transform:none}
+.t-print.s2 .whole{opacity:0;transform:translateX(-10cqw) scale(.9)}
+.t-print.s2 .split{opacity:1;transform:none}
+.t-print.s2 .pct{opacity:1;transform:none}
+.t-print.s3 .split{opacity:0;transform:translateX(-10cqw) scale(.9)}
+.t-print.s3 .jh,.t-print.s3 .jbd{opacity:1;transform:none}
+.t-print.s3 .jbd{transition-delay:.12s}
+.t-print.s3 .jcap{opacity:1}
+
+/* ===== 전시 모드 · 처음으로 버튼 ===== */
+.totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:max(18px,env(safe-area-inset-bottom,0px));z-index:40;width:58px;height:58px;border:0;border-radius:50%;background:#FFF9F1;box-shadow:0 8px 22px rgba(80,40,10,.22),inset 0 0 0 1px rgba(232,113,15,.18);font-size:28px;line-height:1;display:grid;place-items:center;cursor:pointer;opacity:0;transform:translateY(12px) scale(.9);pointer-events:none;transition:opacity .3s,transform .35s cubic-bezier(.2,1.4,.4,1);-webkit-tap-highlight-color:transparent}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:active{transform:scale(.92)}
+.totop:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+/* 전시용: 맨 위 메뉴 바 없이 화면만 */
+.top{display:none}
+/* 가로 화면(전시용 아이패드, 4:3·16:10 모두)에서는 장면 하나가 화면 한 장을 꽉 채운다.
+   바탕은 화면 끝까지, 16:9(짝 장면은 8:9) 내용은 화면 안에 들어가는 가장 큰 크기로 가운데에 놓는다 */
+@media (orientation:landscape){
+  .t-banner{aspect-ratio:auto;height:calc(var(--vh,100svh) - var(--hh,0px))}
+  .t-banner .center{transform:scale(1.45)}
+  .t-banner .belt{top:-14cqw}
+  .scrolly #screens > .tile{--ph:calc(var(--vh,100svh) - var(--hh,0px));aspect-ratio:auto;height:var(--ph)}
+  .scrolly #screens > .tile > .stage,.scrolly .pin .tile > .stage{inset:auto;left:50%;top:50%;width:min(100%,calc(var(--ph) * 16 / 9));max-width:100%;height:auto;aspect-ratio:16/9;transform:translate(-50%,-50%);container-type:inline-size}
+  .scrolly .pin .tile.half > .stage{width:min(100%,calc(var(--ph) * 8 / 9));aspect-ratio:8/9}
+  .scrolly .pin .pair > .tile:first-child > .stage{left:auto;right:0;transform:translateY(-50%)}
+  .scrolly .pin .pair > .tile:last-child > .stage{left:0;transform:translateY(-50%)}
+  .jb-in{height:calc(var(--vh,100svh) - var(--hh,0px))}
+}
+/* 장면이 바뀔 때 잠깐 덮는 막: 밝은 장면 사이에서 번쩍이지 않게 크림색 */
+.fadecover{position:fixed;left:0;right:0;top:var(--hh,56px);bottom:0;z-index:35;background:#FBF4EA;opacity:0;pointer-events:none;transition:opacity .38s ease}
+.fadecover.on{opacity:1}
+
+/* ===== 반응형 ===== */
+@media (max-width:760px){
+  .pair{grid-template-columns:1fr}
+  .intro{grid-template-columns:minmax(0,1fr)}
+  .designer .team-name{margin-top:10px;font-size:clamp(18px,1.6vw,22px);font-weight:700;color:var(--focus)}
+.designer ul{grid-template-columns:minmax(0,1fr)}
+  .top nav{gap:10px;letter-spacing:.04em}
+}
+</style>
+
+<header class="top">
+  <div class="in">
+    <a class="brand" href="#top"><img src="img/logo.webp" alt="요리죠리"></a>
+    <nav aria-label="페이지 안 이동"><a href="#screens">SCREENS</a><span aria-hidden="true">|</span><a href="#jori3d">JORI 3D</a></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="media" aria-label="배너">
+      <div class="tile t-banner" data-scene="banner" role="img" aria-label="앱 화면들 위로 요리죠리 앱 아이콘과 로고, 요리가 쉬워지는 사용자 맞춤 요리 파트너라는 문구가 떠 있는 배너">
+        <div class="stage">
+          <div class="a belt"><div class="row r1"></div><div class="row r2"></div><div class="row r3"></div></div>
+          <span class="a veil"></span>
+          <div class="a center">
+            <img class="icon" src="img/app-icon.webp" alt="">
+            <div class="logo"><img src="img/logo-1.webp" alt=""><img src="img/logo-2.webp" alt=""><img src="img/logo-3.webp" alt=""><img src="img/logo-4.webp" alt=""></div>
+            <p class="sub">요리가 쉬워지는 사용자 맞춤 요리 파트너</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="media" id="screens" aria-label="화면 소개">
+      <div class="tile t-hero" data-scene="hero" role="img" aria-label="요리가 쉬워지는 사용자 맞춤 요리 파트너, 요리죠리. 마이페이지와 홈 화면이 뜬 휴대폰 두 대 앞에서 죠리가 만세를 한다.">
+        <div class="stage">
+          <span class="a arc arc1"></span><span class="a arc arc2"></span><span class="a haze"></span>
+          <img class="a ph1" src="img/kv-phone-mypage.webp" alt="">
+          <img class="a ph2" src="img/kv-phone-home.webp" alt="">
+          <div class="a copy">
+            <p class="l1">요리가 쉬워지는</p>
+            <p class="l2">사용자 맞춤 요리 파트너</p>
+            <div class="logo"><img src="img/logo-1.webp" alt=""><img src="img/logo-2.webp" alt=""><img src="img/logo-3.webp" alt=""><img src="img/logo-4.webp" alt=""></div>
+          </div>
+          <span class="a shadow"></span>
+          <img class="a jori" src="img/jori-yay.webp" alt="">
+          <span class="a orb l o1"><img src="img/orb-l.svg" alt=""></span>
+          <span class="a orb o2"><img src="img/orb-m.svg" alt=""></span>
+          <span class="a orb o3"><img src="img/orb-s.svg" alt=""></span>
+          <span class="a orb o4"><img src="img/orb-xs.svg" alt=""></span>
+        </div>
+      </div>
+
+      <div class="tile t-frames" data-scene="frames" role="img" aria-label="죠리의 여러 동작이 필름 칸처럼 이어지고, 한 칸씩 불이 들어온다: 인사, 만세, 생각, 가리키기, 걷기, 수첩, 돋보기, 웃음, 궁금.">
+        <div class="stage">
+          <span class="a tag lab">Main Character</span>
+          <p class="a ttl">요리를 끝까지 함께하는 AI 요리 코치, <em>죠리</em></p>
+          <p class="a sub">마이크와 카메라로 요리 과정을 함께 지켜보다가, 막히는 순간 곧바로 도와줘요</p>
+          <div class="a strip"></div>
+        </div>
+      </div>
+
+      <div class="tile t-onb" data-scene="onb" role="img" aria-label="온보딩 네 단계: 기본 정보, 음식 스타일, 알레르기, 생활 정보.">
+        <div class="stage">
+          <span class="a tag lab">온보딩</span>
+          <p class="a ttl">네 단계만 답하면<br>나에게 맞춘 홈이 열려요</p>
+          <img class="a flame" src="img/flame.webp" alt="">
+          <div class="phone p1"><div class="scr"><img src="img/scr-onb1.webp" alt=""></div></div>
+          <div class="phone p2"><div class="scr"><img src="img/scr-onb2.webp" alt=""></div></div>
+          <div class="phone p3"><div class="scr"><img src="img/scr-onb3.webp" alt=""></div></div>
+          <div class="phone p4"><div class="scr"><img src="img/scr-onb4.webp" alt=""></div></div>
+          <span class="a rail"></span><span class="a fill"></span>
+          <span class="a dot d1"></span><span class="a dot d2"></span><span class="a dot d3"></span><span class="a dot d4"></span>
+          <span class="a nm n1">기본 정보</span><span class="a nm n2">음식 스타일</span><span class="a nm n3">알레르기</span><span class="a nm n4">생활 정보</span>
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="tile half t-time" data-scene="time" role="img" aria-label="아침 7시대에 홈을 열면 바쁜 아침 든든하게 카테고리가, 밤 9시 이후에 열면 야식 카테고리가 맨 위로 올라온다.">
+          <div class="stage">
+            <p class="a clock">07:30</p>
+            <p class="a what">바쁜 아침 든든하게</p>
+            <p class="a hint">07:00~10:59에 홈을 열면<br>아침 메뉴가 맨 위로 올라와요</p>
+            <div class="phone"><div class="scr"><img src="img/scr-home-morning.webp" alt=""><img class="nightimg" src="img/scr-home-night.webp" alt=""></div><span class="island"></span></div>
+            <div class="card row r1"><img src="img/pop-row-morning.webp" alt=""></div>
+            <div class="card row r2"><img src="img/pop-row-night.webp" alt=""></div>
+          </div>
+        </div>
+        <div class="tile half t-cat" data-scene="cat" role="img" aria-label="취향에 맞춘 레시피 카테고리 카드가 한 장씩 넘어간다: 일식, 한식, 양식, 디저트·간식, 바쁜 아침 든든하게, 야식, 원팬요리.">
+          <div class="stage">
+            <span class="a tag lab">내 취향에 맞춘 카테고리</span>
+            <div class="a word"><span>원팬요리</span></div>
+            <p class="a sub">음식 스타일과 생활 정보로 고르고,<br>알레르기 재료가 든 레시피는 표시해요</p>
+            <div class="a deck"></div>
+            <img class="a jori" src="img/jori-mag.webp" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-search" data-scene="search" role="img" aria-label="말하듯 편하게 검색. 계란이랑 대파 쓰고 싶어라고 입력하면 대파와 달걀을 포함 조건으로 이해해 레시피를 찾는다. 김치볶음밥처럼 메뉴 이름으로도 바로 찾는다.">
+        <div class="stage">
+          <span class="a right"></span>
+          <span class="a tag lab">말하듯 편하게 검색</span>
+          <p class="a ttl">넣고 싶은 재료든,<br>먹고 싶은 메뉴든<br><em>편하게 말해 주세요</em></p>
+          <div class="a bar"><span class="q">계란이랑 대파 쓰고 싶어</span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg></span></div>
+          <div class="card cond"><img class="main" src="img/pop-cond-ingr.webp" alt=""><img class="alt" src="img/pop-cond-menu.webp" alt=""></div>
+          <p class="a note">문장 속 재료를 ‘포함’ 조건으로 정리하고, 계란·달걀처럼 다른 이름도 알아들어요</p>
+          <div class="phone"><div class="scr"><img class="main" src="img/scr-search-ingr.webp" alt=""><img class="alt" src="img/scr-search-menu.webp" alt=""></div><span class="island"></span></div>
+          <img class="a jori" src="img/jori-smile.webp" alt="">
+        </div>
+      </div>
+
+      <div class="tile t-yt" data-scene="yt" role="img" aria-label="유튜브 레시피 영상 썸네일들 가운데 하나가 휴대폰으로 들어가 재료와 순서가 정리된 레시피로 바뀐다. 오른쪽에는 김치볶음밥, 두부계란덮밥, 야끼우동 레시피가 글로 정리돼 있다.">
+        <div class="stage">
+          <div class="a grid"></div>
+          <img class="a fly" src="img/thumb-result.webp" alt="">
+          <div class="phone"><div class="scr">
+            <div class="vw paste">
+              <h4>유튜브 영상 속<br>레시피를 가져와요</h4>
+              <p class="s">영상 링크를 붙여 넣어 주세요</p>
+              <p class="url">youtu.be/mo8FFsBD3YA</p>
+              <p class="btn">레시피 추출하기</p>
+            </div>
+            <div class="vw prog">
+              <img class="pv" src="img/thumb-result.webp" alt="">
+              <ol><li><i></i>영상 정보 읽는 중</li><li><i></i>자막 읽는 중</li><li><i></i>재료와 순서 정리 중</li></ol>
+            </div>
+            <div class="vw res">
+              <h4>영상이<br>레시피로 바뀌었어요</h4>
+              <p class="s">링크 하나로 재료와 순서가 정리됐어요</p>
+              <img class="th" src="img/thumb-result.webp" alt="">
+              <p class="vt">실패 없는 기적의 김치볶음밥 레시피</p>
+              <div class="box"><b>김치볶음밥</b><span><em>재료</em>김치 · 스팸 · 밥 · 대파 …</span><span><em>순서</em>파기름 → 스팸 → 김치 → 밥 …</span></div>
+              <p class="warn">영상에 나온 말로 정리해서 틀릴 수 있어요</p>
+              <p class="btn">보관하고 요리하기</p>
+            </div>
+          </div><span class="island"></span></div>
+          <span class="a tag lab">유튜브에서 레시피 가져오기</span>
+          <p class="a ttl">유튜브 영상 속 요리도<br>나만의 보관함으로</p>
+          <div class="a recipes">
+            <div><b>김치볶음밥</b><p>재료 김치 한 공기 · 스팸 1캔 · 밥 두 공기 · 대파 1/2개 …</p><p>순서 파기름 내기 → 스팸 볶기 → 김치와 양념 넣기 …</p></div>
+            <div><b>두부계란덮밥</b><p>재료 계란 4개 · 두부 1모 · 대파 1대 · 양파 1/2개 …</p><p>순서 재료 준비 → 소스 준비 → 소세지 볶기 …</p></div>
+            <div><b>야끼우동</b><p>재료 우동면 · 양배추 · 고기 · 야끼우동 소스</p><p>순서 재료 준비 → 볶음 → 면 볶기 → 소스 넣기 …</p></div>
+          </div>
+          <div class="a more" aria-hidden="true"><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="tile half t-swap" data-scene="swap" role="img" aria-label="실파가 없어서 없어요를 누르면 대신 쓸 재료 후보가 뜨고, 쪽파를 고르면 바뀐 레시피를 미리 보여 준다. 조리 단계 문장도 실파는 4cm 길이로 썰어요에서 쪽파는 4cm 길이로 썰어요로 바뀐다.">
+          <div class="stage">
+            <span class="a tag lab">재료 바꾸기</span>
+            <p class="a ttl">없는 재료가 있어도<br>그대로 시작해요</p>
+            <div class="card pick"><img src="img/pop-noitem.webp" alt=""><span class="rowhl"></span><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div>
+            <span class="a rip"></span>
+            <img class="a finger" src="img/finger.webp" alt="">
+            <div class="card prev"><img src="img/pop-preview.webp" alt=""></div>
+            <p class="a sent"><span class="no">4</span><span><span class="flip"><span class="fa">실파</span><span class="fb">쪽파</span></span>는 4cm 길이로 썰어요.</span></p>
+          </div>
+        </div>
+        <div class="tile half t-kit" data-scene="kit" role="img" aria-label="내 주방에서 화구와 입맛을 정하면, 화구와 짠맛·매운맛·단맛 설정에 맞춘 팁이 하나씩 붙는다.">
+          <div class="stage">
+            <span class="a tag lab">내 주방</span>
+            <p class="a ttl">화구와 입맛을 정해 두면<br>나에게 맞춘 팁이 붙어요</p>
+            <div class="card kit"><img src="img/pop-kitchen.webp" alt=""><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="ring r4"></span></div>
+            <svg class="a wires" viewBox="0 0 100 115.5" preserveAspectRatio="none" aria-hidden="true">
+              <g class="w1"><path class="draw" d="M47.5 43.3 C51 43.3 51 37.8 54 37.8"/><circle cx="47.5" cy="43.3" r=".7"/></g>
+              <g class="w2"><path class="draw" d="M47.5 66.7 C51 66.7 51 55 54 55"/><circle cx="47.5" cy="66.7" r=".7"/></g>
+              <g class="w3"><path class="draw" d="M47.5 73.9 C51 73.9 51 70.5 54 70.5"/><circle cx="47.5" cy="73.9" r=".7"/></g>
+              <g class="w4"><path class="draw" d="M47.5 81.2 C51 81.2 51 86 54 86"/><circle cx="47.5" cy="81.2" r=".7"/></g>
+            </svg>
+            <span class="a ktag t1">화구 · 인덕션</span><span class="a ktag t2">짠맛 · 싱겁게</span><span class="a ktag t3">매운맛 · 맵지 않게</span><span class="a ktag t4">단맛 · 달지 않게</span>
+            <div class="card tip k1"><img src="img/tip-fire.webp" alt=""></div>
+            <div class="card tip k2"><img src="img/tip-salty.webp" alt=""></div>
+            <div class="card tip k3"><img src="img/tip-spicy.webp" alt=""></div>
+            <div class="card tip k4"><img src="img/tip-sweet.webp" alt=""></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-steps" data-scene="steps" role="img" aria-label="단계별 레시피 카드가 한 장씩 옆으로 넘어가고, 지난 카드는 왼쪽에 흐리게 남는다. 단계마다 죠리의 팁이 붙는다. 시간이 필요한 단계에서는 29분 57초부터 줄어드는 타이머가 뜬다.">
+        <div class="stage">
+          <span class="a tag lab">죠리와 함께 단계별로</span>
+          <p class="a ttl">할 일을 한 장씩, 마치면 다음 카드로</p>
+          <div class="a rail">
+            <div class="card sc" data-p="0"><img src="img/scr-step1.webp" alt=""></div>
+            <div class="card sc" data-p="1"><img src="img/scr-step4.webp" alt=""></div>
+            <div class="card sc" data-p="2"><img src="img/scr-step6.webp" alt=""></div>
+          </div>
+          <div class="card tipc"><img src="img/pop-tip6.webp" alt=""></div>
+          <div class="a timer"><svg viewBox="0 0 36 36" aria-hidden="true"><circle class="tr" cx="18" cy="18" r="15.9" pathLength="100"/><circle class="pr" cx="18" cy="18" r="15.9" pathLength="100"/></svg><div><b class="tm">29:57</b><span>단계별 타이머</span></div></div>
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="tile half t-chat" data-scene="chat" role="img" aria-label="요리 중 대화하기를 누르면 자주 묻는 질문을 고르거나 직접 입력해 물을 수 있고, 죠리가 지금 단계를 기준으로 답한다. 손이 바쁠 땐 음성으로 묻는다.">
+          <div class="stage">
+            <span class="a tag lab">요리 중 실시간 질문</span>
+            <p class="a ttl">궁금한 건 그 자리에서<br>글이나 말로 물어요</p>
+            <div class="card screen"><img class="i1" src="img/scr-chat-faq.webp" alt=""><img class="i2" src="img/scr-chat-answer.webp" alt=""><img class="i3" src="img/scr-chat-voice.webp" alt=""></div>
+            <div class="card faq"><img src="img/pop-faq.webp" alt=""></div>
+            <div class="card bq"><img src="img/bubble-q.webp" alt=""></div>
+            <div class="card ans-p"><img src="img/pop-answer.webp" alt=""></div>
+            <div class="card voice"><img src="img/pop-voice.webp" alt=""><span class="eq"><i></i><i></i><i></i><i></i></span></div>
+          </div>
+        </div>
+        <div class="tile half t-cam" data-scene="cam" role="img" aria-label="이거 다 익었어? 카메라를 켜면 화면 속 죠리가 냄비를 함께 지켜보며 지금 단계의 팁을 보여 주고, 화면을 두 번 톡톡 치면 죠리가 누른 곳으로 걸어간다.">
+          <div class="stage">
+            <span class="a tag lab">카메라로 같이 보기</span>
+            <p class="a ask"><span class="t">이거 다 익었어?</span><span class="cur"></span></p>
+            <div class="card view"><img src="img/pop-cam-real-clear.webp" alt=""><span class="scan"></span><span class="cj"><img class="st" src="img/jori-smile.webp" alt=""><img class="wk" src="img/jori-walk.webp" alt=""></span></div>
+            <span class="a tok">두 번 톡톡! 죠리가 움직여요</span>
+            <span class="a rip"></span>
+            <img class="a finger" src="img/finger.webp" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-diary" data-scene="diary" role="img" aria-label="요리를 마치면 별점 4점을 남기고, 요리 달력에 사진이 쌓이고, 일기 카드가 펼쳐진다. 오코노미야키는 외식 예상 비용 1만 원, 재료비 2천9백 원이라 약 7천1백 원 절약.">
+        <div class="stage">
+          <span class="a tag lab">요리를 마치면 남는 나만의 일기장</span>
+          <div class="phone"><div class="scr"><img src="img/scr-done.webp" alt=""></div><span class="island"></span></div>
+          <div class="a stars" aria-hidden="true"></div>
+          <div class="card cal"><img src="img/card-calendar.webp" alt=""></div>
+          <div class="card dc dc1"><img src="img/card-diary1.webp" alt=""></div>
+          <div class="card dc dc2"><img src="img/card-diary3.webp" alt=""></div>
+          <div class="card dc dc3"><img src="img/card-diary2.webp" alt=""></div>
+          <div class="a save"><span class="badge">절약 성공!</span><div><b class="won">약 7,100원</b><span>외식 예상 10,000원 − 재료비 2,900원</span></div></div>
+          <img class="a jori" src="img/jori-note.webp" alt="">
+        </div>
+      </div>
+
+      <div class="pair">
+        <div class="tile half t-my" data-scene="my" role="img" aria-label="마이페이지에는 내 요리 활동과 요리 달력이 있고, 나의 레시피와 나중에 할 요리 보관함이 차례로 앞으로 나온다. 내 버전으로 바꾼 레시피도 저장된다.">
+          <div class="stage">
+            <span class="a tag lab">마이페이지</span>
+            <p class="a ttl">해 본 요리와 바꾼 레시피가<br>한곳에 쌓여요</p>
+            <div class="a fan">
+              <div class="card fc" data-p="0"><img src="img/scr-mypage.webp" alt=""></div>
+              <div class="card fc" data-p="1"><img src="img/scr-my-recipes.webp" alt=""></div>
+              <div class="card fc" data-p="2"><img src="img/scr-later.webp" alt=""></div>
+            </div>
+            <span class="a pill">내 버전 저장</span>
+          </div>
+        </div>
+        <div class="tile half t-loop" role="img" aria-label="기록, 추천, 요리가 원을 그리며 돈다. 가운데에는 직접 만든 오늘의 한 끼. 요리 기록을 바탕으로 다음 추천과 죠리의 안내가 나에게 맞춰진다.">
+          <div class="stage">
+            <span class="a tag lab">요리가 습관이 되는 순환</span>
+            <span class="a ring"></span>
+            <span class="a orbit"><i></i></span>
+            <p class="a mid">직접 만든<br>오늘의 한 끼</p>
+            <span class="a node n1">기록</span>
+            <span class="a node n2">추천</span>
+            <span class="a node n3">요리</span>
+            <p class="a note">요리 기록을 바탕으로 다음 추천과 죠리의 안내가 나에게 맞춰져요</p>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="jb" id="jori3d" aria-label="죠리 3D 모델">
+    <div class="jb-in">
+      <div class="col">
+        <div class="stage3d" id="viewer" aria-label="죠리 3D 뷰어">
+          <p class="wordmark" aria-hidden="true">JORI</p>
+          <img class="poster" src="assets/tex1_front.webp" alt="죠리 정면">
+          <canvas id="stage"></canvas>
+          <div class="vtop">
+            <div>
+              <div class="live"><i></i><span id="vbadge">피규어 · 컬러</span></div>
+              <div class="small" id="vstatus" aria-live="polite">3D 모델 불러오는 중…</div>
+            </div>
+            <div class="vbtns">
+              <button type="button" class="ibtn" id="spin" aria-pressed="true" aria-label="자동 회전" data-tip="<b>자동 회전</b>누르면 멈추고, 다시 누르면 돌아요."><svg viewBox="0 0 24 24" aria-hidden="true"><path id="spin-ico" d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg></button>
+              <button type="button" class="ibtn" id="front" aria-label="정면으로" data-tip="<b>정면으로</b>회전을 멈추고 처음 각도로 돌아가요."><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5a7 7 0 1 1-6.6 4.7l1.9.6A5 5 0 1 0 12 7v3L7.5 6 12 2z"/></svg></button>
+            </div>
+          </div>
+          <button type="button" class="hot" data-hot="tip" hidden aria-label="후드 끝" data-tip="<b>후드 끝</b>물방울 모양 후드의 끝이에요. 살짝 뒤로 휘어 있고, 피규어에서 가장 높은 곳(18 cm)이에요."></button>
+          <button type="button" class="hot" data-hot="face" hidden aria-label="얼굴" data-tip="<b>얼굴</b>눈·코·입이 얕게 들어가 있어요. 통째로 출력하면 이 주변에 받침대 자국이 남기 쉬워요."></button>
+          <button type="button" class="hot" data-hot="pendant" hidden aria-label="펜던트" data-tip="<b>펜던트</b>앱에서 기분에 따라 노랑·빨강·파랑으로 빛나는 구슬이에요."></button>
+          <button type="button" class="hot" data-hot="neck" hidden aria-label="목 분리선" data-tip="<b>목 분리선</b>바닥에서 52.5 mm 높이, 목이 가장 가는 곳이에요. 여기서 머리와 몸을 나눠 따로 출력해요."></button>
+          <button type="button" class="hot" data-hot="arm" hidden aria-label="팔" data-tip="<b>팔</b>손가락 없는 장갑 모양이에요. 포즈를 고르면 앱에 들어간 모델의 팔이 움직여요."></button>
+          <button type="button" class="hot" data-hot="foot" hidden aria-label="발" data-tip="<b>발</b>짧고 둥근 두 발이에요. 출력할 때 바닥판에 닿는 면이에요."></button>
+          <div class="modechips" role="group" aria-label="보기 방식" id="modes">
+              <button type="button" data-mode="tex" aria-pressed="true" data-tip="<b>컬러</b>색을 입힌 실제 모습이에요.">컬러</button>
+              <button type="button" data-mode="clay" aria-pressed="false" data-tip="<b>형태</b>색을 빼고 모양만 봐요.">형태</button>
+              <button type="button" data-mode="wire" aria-pressed="false" data-tip="<b>면 구조</b>3D 모델은 작은 면을 이어 붙여 만들어요. 피규어는 사각형 면 7,997개로 정리한 구조를, 포즈 모델은 원래의 삼각형 면을 보여 줘요.">면 구조</button>
+              <button type="button" data-mode="support" aria-pressed="false" data-tip="<b>받침대</b>3D 프린터는 공중에 뜬 부분을 아래에서 받쳐야 해요. 통째로 출력할 때 기준으로, 빨강은 받침대가 필요한 면, 자주는 받침대가 몸 위에 세워지는 면, 파랑은 받침대가 닿는 자리예요.">받침대</button>
+          </div>
+          <div class="hint small">드래그해서 돌리기 · ⌘/Ctrl + 스크롤로 확대</div>
+          <div class="readout" id="vdeg" aria-hidden="true">000°</div>
+        </div>
+        <div class="controls">
+          <div class="ctl pose"><span class="small">포즈</span>
+            <div class="tabs" role="group" aria-label="포즈" id="poses">
+              <button type="button" data-pose="" aria-pressed="true" data-tip="<b>피규어</b>3D 프린팅용으로 정리한 모델이라 움직이지 않아요. 다른 포즈를 고르면 앱에 들어간 움직이는 모델로 바뀌어요.">피규어</button>
+              <button type="button" data-pose="Idle" aria-pressed="false">기본</button>
+              <button type="button" data-pose="Greeting" aria-pressed="false">인사</button>
+              <button type="button" data-pose="Speaking" aria-pressed="false">말하기</button>
+              <button type="button" data-pose="Listening" aria-pressed="false">듣기</button>
+              <button type="button" data-pose="Thinking" aria-pressed="false">생각</button>
+              <button type="button" data-pose="Observing" aria-pressed="false">살펴보기</button>
+              <button type="button" data-pose="PointRight" aria-pressed="false">가리키기</button>
+              <button type="button" data-pose="Celebrate" aria-pressed="false">축하</button>
+              <button type="button" data-pose="Walk" aria-pressed="false">걷기</button>
+              <button type="button" data-pose="Error" aria-pressed="false">머쓱</button>
+            </div>
+          </div>
+        </div>
+        <div class="ruler" id="ruler" role="slider" tabindex="0" aria-label="죠리 회전 각도" aria-valuemin="0" aria-valuemax="359" aria-valuenow="0" data-tip="<b>회전 각도</b>지금 죠리가 돌아간 각도예요. 끌거나 누르면 그 각도로 돌아가요. 키보드 ← → 로도 움직여요.">
+          <div class="base"></div><div class="head" id="rhead"></div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="idn">
+          <span class="lab3">3D 모델링</span>
+          <h2>Jori<span>죠리</span></h2>
+          <p>요리죠리 앱에서 함께 요리를 돕는 캐릭터예요. 주황색 물방울 후드를 쓴 아기 모습이고, 가슴의 구슬 펜던트가 기분에 따라 다른 색으로 빛나요.</p>
+        </div>
+        <dl class="specs">
+          <div><dt>스타일</dt><dd>아기 캐릭터</dd></div>
+          <div><dt>쓰임</dt><dd>앱 속 3D · 출력 피규어</dd></div>
+          <div><dt>제작</dt><dd>Blender 5.2</dd></div>
+          <div><dt>웹 3D</dt><dd>three.js</dd></div>
+          <div><dt>높이</dt><dd>18 cm</dd></div>
+          <div><dt>색</dt><dd><div class="swatches"><i style="background:#E06F00" title="후드 #E06F00"></i><i style="background:#F5B783" title="얼굴 #F5B783"></i><i style="background:#1E1A1A" title="눈 #1E1A1A"></i></div></dd></div>
+        </dl>
+        <div class="stats">
+          <div class="stat" tabindex="0" data-tip="<b>원본 면 200만 개</b>AI로 만든 원본 모델은 삼각형 면 200만 개로 되어 있어요. 너무 촘촘해서 그대로는 고치거나 움직이기 어려워요."><b>200만</b><span class="small">원본 면</span></div>
+          <div class="stat" tabindex="0" data-tip="<b>정리한 면 7,997개</b>원본 표면을 따라 사각형 면으로 다시 정리했어요. 보기에서 ‘면 구조’를 고르면 이 선이 보여요."><b>7,997</b><span class="small">정리한 면</span></div>
+          <div class="stat" tabindex="0" data-tip="<b>잘게 나눈 면 31,988개</b>정리한 면을 하나씩 네 조각으로 나눴어요. 확대 이미지에 썼어요."><b>31,988</b><span class="small">잘게 나눈 면</span></div>
+          <div class="stat" tabindex="0" data-tip="<b>표면 이미지 4장</b>색·거칠기·요철·금속감을 담은 2048 px 이미지예요. 원래 광택이 너무 강해서 은은하게 낮췄어요."><b>4장</b><span class="small">표면 이미지</span></div>
+        </div>
+        <div class="turn" id="turnaround" data-rows="shaded">
+          <div class="eyebrow"><span class="small">여섯 방향</span>
+            <div class="tabs" role="group" aria-label="여섯 방향 보기">
+              <button type="button" data-rows="both" aria-pressed="false">둘 다</button>
+              <button type="button" data-rows="shaded" aria-pressed="true">컬러</button>
+              <button type="button" data-rows="wire" aria-pressed="false">면 구조</button>
+            </div>
+          </div>
+          <div class="tgrid">
+            <button type="button" class="view" data-angle="0" data-tip="<b>정면 · 0°</b>누르면 왼쪽 3D가 이 방향으로 돌아가요."><span class="imgs"><img class="s" src="assets/tex1_front.webp" alt="정면 컬러"><img class="w" src="assets/turn1_front.webp" alt="정면 면 구조"></span><span class="lab">정면<span class="mono">000°</span></span></button>
+            <button type="button" class="view" data-angle="45" data-tip="<b>왼쪽 3/4 · 45°</b>누르면 왼쪽 3D가 이 방향으로 돌아가요."><span class="imgs"><img class="s" src="assets/tex2_left34.webp" alt="왼쪽 3/4 컬러"><img class="w" src="assets/turn2_left34.webp" alt="왼쪽 3/4 면 구조"></span><span class="lab">왼쪽 3/4<span class="mono">045°</span></span></button>
+            <button type="button" class="view" data-angle="90" data-tip="<b>왼쪽 옆 · 90°</b>누르면 왼쪽 3D가 이 방향으로 돌아가요."><span class="imgs"><img class="s" src="assets/tex3_left.webp" alt="왼쪽 옆 컬러"><img class="w" src="assets/turn3_left.webp" alt="왼쪽 옆 면 구조"></span><span class="lab">왼쪽 옆<span class="mono">090°</span></span></button>
+            <button type="button" class="view" data-angle="180" data-tip="<b>뒤 · 180°</b>누르면 왼쪽 3D가 이 방향으로 돌아가요."><span class="imgs"><img class="s" src="assets/tex4_back.webp" alt="뒤 컬러"><img class="w" src="assets/turn4_back.webp" alt="뒤 면 구조"></span><span class="lab">뒤<span class="mono">180°</span></span></button>
+            <button type="button" class="view" data-angle="270" data-tip="<b>오른쪽 옆 · 270°</b>누르면 왼쪽 3D가 이 방향으로 돌아가요."><span class="imgs"><img class="s" src="assets/tex5_right.webp" alt="오른쪽 옆 컬러"><img class="w" src="assets/turn5_right.webp" alt="오른쪽 옆 면 구조"></span><span class="lab">오른쪽 옆<span class="mono">270°</span></span></button>
+            <button type="button" class="view" data-angle="315" data-tip="<b>오른쪽 3/4 · 315°</b>누르면 왼쪽 3D가 이 방향으로 돌아가요."><span class="imgs"><img class="s" src="assets/tex6_right34.webp" alt="오른쪽 3/4 컬러"><img class="w" src="assets/turn6_right34.webp" alt="오른쪽 3/4 면 구조"></span><span class="lab">오른쪽 3/4<span class="mono">315°</span></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="media" id="screens2" aria-label="면 구조와 3D 프린팅">
+
+      <div class="tile t-topo" data-scene="topo" role="img" aria-label="면 구조: 같은 죠리를 면 548개, 2,082개, 7,997개, 31,988개로 만들어 비교하고, 얼굴·펜던트·팔·발·후드를 확대해 사각형 면이 굴곡을 따라 놓인 모습을 보여 준다.">
+        <div class="stage">
+          <span class="a tag lab">면 구조</span>
+          <p class="a ttl">작은 사각형 면이<br>굴곡을 따라 고르게 놓여요</p>
+          <p class="a lede">같은 모양을 면 개수만 바꿔 다시 만들었어요. 면이 많을수록 얼굴과 끈 같은 작은 부분까지 살아나요.</p>
+          <div class="a dens">
+            <figure class="on"><img src="assets/dens_a.webp" alt=""><figcaption><b>548</b><span>큰 덩어리</span></figcaption></figure>
+            <figure><img src="assets/dens_b.webp" alt=""><figcaption><b>2,082</b><span>윤곽</span></figcaption></figure>
+            <figure data-action="mode:wire" data-tip="<b>면 7,997개</b>위 3D와 여섯 방향 이미지에 쓴 개수예요. 누르면 3D가 면 구조 보기로 바뀌어요."><img src="assets/dens_c.webp" alt=""><figcaption><b>7,997</b><span>3D에 쓴 기본</span></figcaption></figure>
+            <figure><img src="assets/dens_d.webp" alt=""><figcaption><b>31,988</b><span>확대용</span></figcaption></figure>
+          </div>
+          <p class="a note">면 548개 · 큰 덩어리 모양만 남아요</p>
+          <div class="a mz">
+            <div class="face"><img src="assets/cu_face.webp" alt=""><p>얼굴</p></div>
+            <div><img src="assets/cu_pendant.webp" alt=""><p>펜던트</p></div>
+            <div><img src="assets/cu_hand.webp" alt=""><p>팔</p></div>
+            <div><img src="assets/cu_foot.webp" alt=""><p>발</p></div>
+            <div><img src="assets/cu_hood.webp" alt=""><p>후드</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-print" data-scene="print" role="img" aria-label="3D 프린팅: 통째로 출력하면 몸 위에 세워지는 받침대 면적이 21.5 제곱센티미터, 목에서 머리와 몸을 나눠 출력하면 6.7 제곱센티미터로 69% 줄어든다. 머리 밑 구멍 두 개에 몸의 돌기 두 개를 끼워 붙인다.">
+        <div class="stage">
+          <span class="a tag lab">3D 프린팅 · 필라멘트 프린터 · 높이 18 cm</span>
+          <p class="a ttl">목에서 나눠 출력하니<br>받침대 자국이 줄었어요</p>
+          <p class="a delta"><s>21.5</s><span class="num">→ 6.7</span><em>cm²</em></p>
+          <p class="a pct">몸 위에 세워지는 받침대 69% 감소</p>
+          <ol class="a stepl">
+            <li data-n="01"><span>통째로 출력하면 후드 끝·턱 밑·어깨마다 받침대가 필요하고, 그중 <b>21.5 cm²</b>가 얼굴과 몸 위에 세워져요.</span></li>
+            <li data-n="02"><span>목이 가장 가는 곳(바닥에서 <b>52.5 mm</b>)에서 머리와 몸을 나눠 따로 출력했어요.</span></li>
+            <li data-n="03"><span>몸 위의 돌기 두 개(지름 10 mm, 6 mm)를 머리 밑 구멍에 끼우고 붙여요. 구멍에는 0.3 mm 여유를 두었어요.</span></li>
+          </ol>
+          <img class="pic whole" src="assets/sup_whole.webp" alt="">
+          <img class="pic split" src="assets/sup_split.webp" alt="">
+          <img class="pic jh" src="assets/joint_head.webp" alt="">
+          <img class="pic jbd" src="assets/joint_body.webp" alt="">
+          <span class="jcap h">머리 밑면 · 구멍 2개</span><span class="jcap b">몸 윗면 · 돌기 2개</span>
+          <div class="a legend">
+            <button type="button" data-action="mode:support" data-tip="아래가 비어 있어 받침대가 필요한 면이에요. 누르면 3D가 받침대 보기로 바뀌어요."><i style="background:#E0502F"></i>받침대가 필요한 면</button>
+            <button type="button" data-action="mode:support" data-tip="아래에 몸이 있어 받침대가 몸 위에 세워지는 면이에요. 떼어 낸 자리에 자국이 남아요."><i style="background:#B81A93"></i>몸 위에 세워지는 면</button>
+            <button type="button" data-action="mode:support" data-tip="받침대 기둥이 몸 표면에 닿는 자리예요."><i style="background:#2470F0"></i>받침대가 닿는 자리</button>
+          </div>
+        </div>
+      </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <img src="img/logo.webp" alt="요리죠리">
+  <p>요리죠리 · 팀 죠리사 · 2026 졸업 프로젝트</p>
+</footer>
+
+<script>
+(() => {
+  /* 전시용: 기기의 '동작 줄이기' 설정과 상관없이 움직임을 켠다 */
+  const reduce = false;
+  const $ = (r, s) => r.querySelector(s), $$ = (r, s) => [...r.querySelectorAll(s)];
+  const yes = () => true;
+
+  /* 시간으로 흐르는 장면(배너·히어로·프레임·카테고리): 화면에 보일 때만 돈다 */
+  class Scene {
+    constructor(el, fn, once){ this.el = el; this.fn = fn; this.once = once; this.visible = false; this.waiters = []; this.running = false; }
+    async wait(ms){
+      let left = ms;
+      while (left > 0){
+        if (!this.visible) await new Promise(r => this.waiters.push(r));
+        const t0 = performance.now();
+        await new Promise(r => setTimeout(r, Math.min(left, 120)));
+        left -= performance.now() - t0;
+      }
+    }
+    step(n){ this.el.classList.add('s' + n); }
+    reset(){
+      const el = this.el;
+      el.classList.add('snap');
+      [...el.classList].forEach(c => { if (/^s\d+$/.test(c)) el.classList.remove(c); });
+      el.classList.add('s0');
+      void el.offsetWidth;
+      el.classList.remove('snap');
+    }
+    show(v){
+      this.visible = v; this.el.classList.toggle('play', v);
+      if (v){ this.waiters.splice(0).forEach(r => r()); if (!this.running) this.run(); }
+    }
+    async run(){
+      this.running = true;
+      do { this.reset(); await this.wait(60); await this.fn(this, this.el); } while (!this.once);
+      /* 한 번 도는 장면도 다시 보이면 처음부터(맨 위로 돌아왔을 때 배너·히어로가 다시 열린다) */
+      this.running = false;
+    }
+  }
+
+  function setText(el, text){ el.textContent = ''; text.split('\n').forEach((ln, i) => { if (i) el.appendChild(document.createElement('br')); el.appendChild(document.createTextNode(ln)); }); }
+  function count(el, from, to, dur, fmt, live = yes){
+    if (reduce){ el.textContent = fmt(to); return Promise.resolve(true); }
+    return new Promise(res => {
+      const t0 = performance.now();
+      const tick = now => { if (!live()) return res(false);
+        const t = Math.min(1, (now - t0) / dur); const e = 1 - Math.pow(1 - t, 3);
+        el.textContent = fmt(from + (to - from) * e); if (t < 1) requestAnimationFrame(tick); else res(true); };
+      requestAnimationFrame(tick);
+    });
+  }
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  async function typeTo(el, text, ms, live = yes){
+    if (reduce){ el.textContent = text; return true; }
+    el.textContent = '';
+    for (const c of text){ if (!live()) return false; el.textContent += c; await sleep(ms); }
+    return live();
+  }
+  async function typeWith(s, el, text, ms){ el.textContent = ''; for (const c of text){ el.textContent += c; await s.wait(ms); } }
+
+  /* 장면 안의 반복 요소 채우기 */
+  const POSES = [['인사','jori-hi'],['만세','jori-yay'],['생각','jori-think'],['가리키기','jori-point'],['걷기','jori-walk'],['수첩','jori-note'],['돋보기','jori-mag'],['웃음','jori-smile'],['궁금','jori-arms']];
+  const strip = $(document, '.t-frames .strip');
+  for (let i = 0; i < POSES.length; i++){
+    const [nm, f] = POSES[i];
+    const c = document.createElement('div'); c.className = 'cell' + (i === 1 ? ' on' : '');
+    c.innerHTML = `<span class="n">${String(i + 1).padStart(2, '0')}</span><img src="img/${f}.webp" alt=""><span class="nm">${nm}</span>`;
+    strip.appendChild(c);
+  }
+  const CATS = [['일식','cat-jp'],['한식','cat-kr'],['양식','cat-west'],['디저트·간식','cat-dessert'],['바쁜 아침 든든하게','cat-morning'],['야식','cat-night'],['원팬요리','cat-onepan']];
+  const deck = $(document, '.t-cat .deck');
+  CATS.forEach(([nm, f]) => { const d = document.createElement('div'); d.className = 'cc'; d.innerHTML = `<img src="img/${f}.webp" alt="">`; deck.appendChild(d); });
+  const placeCats = (k) => $$(deck, '.cc').forEach((d, i) => { const p = (k - i + CATS.length) % CATS.length; d.className = 'cc' + (p <= 3 ? ' c' + p : ''); });
+  placeCats(6);
+  const ytGrid = $(document, '.t-yt .grid');
+  [[1,4,7,10],[2,5,8,11],[3,6,9,12]].forEach(col => {
+    const c = document.createElement('div'); c.className = 'col';
+    const imgs = col.concat(col).map(n => `<img src="img/thumb${n}.webp" alt="">`).join('');
+    c.innerHTML = imgs + imgs; ytGrid.appendChild(c);
+  });
+  const starBox = $(document, '.t-diary .stars');
+  const STAR = '<svg viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.3L12 17.1l-5.7 3.1 1.2-6.3L2.8 9.5l6.4-.8z"/></svg>';
+  starBox.innerHTML = STAR.repeat(5) + '<span>4점 · 맛있었어요</span>';
+  const stars = $$(starBox, 'svg'); stars.slice(0, 4).forEach(s => s.classList.add('on'));
+  const BELT = [['scr-home','scr-detail','scr-mypage','scr-home-cat','scr-cam-ask','scr-done','scr-search-ingr','scr-home-night'],
+                ['scr-step1','scr-chat-answer','scr-prep','scr-my-recipes','scr-home-morning','scr-timer','scr-later','scr-onb2'],
+                ['scr-search-menu','scr-home-cat','scr-chat-voice','scr-detail','scr-step4','scr-mypage','scr-done','scr-home']];
+  $$(document, '.t-banner .row').forEach((r, i) => { const h = BELT[i].map(f => `<img src="img/${f}.webp" alt="">`).join(''); r.innerHTML = h + h; });
+
+  /* 시간으로 흐르는 장면 */
+  const timed = {
+    banner: [true, async (s, el) => {
+      await s.wait(250); s.step(1);
+      await s.wait(450); s.step(2);
+      await s.wait(800); s.step(3);
+    }],
+    hero: [true, async (s, el) => {
+      await s.wait(150); s.step(1);
+      await s.wait(500); s.step(2);
+      await s.wait(700); s.step(3);
+      await s.wait(800); s.step(4);
+      await s.wait(500); s.step(5);
+    }],
+    frames: [false, async (s, el) => {
+      const cells = $$(el, '.cell');
+      for (let i = 0; i < cells.length; i++){ cells.forEach((c, j) => c.classList.toggle('on', j === i)); await s.wait(520); }
+    }],
+    cat: [false, async (s, el) => {
+      const word = $(el, '.word');
+      for (let i = 0; i < CATS.length; i++){
+        placeCats(i);
+        const old = $(word, 'span'); const nw = document.createElement('span'); nw.textContent = CATS[i][0]; nw.className = 'enter';
+        word.appendChild(nw); void nw.offsetWidth; nw.classList.remove('enter');
+        if (old){ old.classList.add('leave'); old.style.position = 'absolute'; old.style.top = '0'; setTimeout(() => old.remove(), 600); }
+        await s.wait(1300);
+      }
+    }],
+  };
+
+  /* 스크롤로 넘기는 장면: 패널이 화면에 붙어 있는 동안 스크롤한 만큼 다음 화면으로 넘어간다 */
+  const S = (el, k) => { [...el.classList].forEach(c => { if (/^s\d+$/.test(c)) el.classList.remove(c); }); for (let i = 0; i <= k; i++) el.classList.add('s' + i); };
+  const gen = el => (el._g = (el._g || 0) + 1), liveOf = (el, g) => () => el._g === g;
+
+  const clockFmt = v => { const h = Math.floor(v), m = Math.round((v - h) * 6) * 10 % 60; return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0'); };
+
+  const beats = {
+
+    topo: { n: 4,
+      NOTE: ['면 548개 · 큰 덩어리 모양만 남아요', '면 2,082개 · 후드 테두리와 얼굴 윤곽이 생겨요', '면 7,997개 · 위 3D에 쓴 개수예요', '면 31,988개 · 얼굴과 끈까지 또렷해요'],
+      pre(el){ this.go(el, 0); },
+      go(el, b){ $$(el, '.dens figure').forEach((f, i) => f.classList.toggle('on', i === b)); $(el, '.note').textContent = this.NOTE[b];
+        $$(el, '.mz > div').forEach((d, i) => d.classList.toggle('zoom', b === 3 && i === 0)); } },
+    print: { n: 3,
+      pre(el){ gen(el); S(el, 0); this.mark(el, 0); $(el, '.delta .num').textContent = '→ 21.5'; },
+      mark(el, b){ $$(el, '.stepl li').forEach((l, i) => l.classList.toggle('on', i === b)); },
+      go(el, b, prev){ const g = gen(el), num = $(el, '.delta .num'); S(el, b + 1); this.mark(el, b);
+        if (b >= 1 && prev === 0) count(num, 21.5, 6.7, 900, v => '→ ' + v.toFixed(1), liveOf(el, g));
+        else num.textContent = b >= 1 ? '→ 6.7' : '→ 21.5'; } },
+    gap: { n: 5,
+      pre(el){ S(el, 0); $(el, '.num').textContent = '0.0'; },
+      go(el, b, prev){ const g = gen(el); S(el, [2, 3, 4, 5, 6][b]);
+        const num = $(el, '.num'); if (prev < 0) count(num, 0, 72.4, 1300, v => v.toFixed(1), liveOf(el, g)); else num.textContent = '72.4'; } },
+    bar: { n: 3,
+      pre(el){ $$(el, '.slide').forEach(x => x.classList.remove('on', 'gone')); $(el, '.cnt').textContent = '1 / 3'; },
+      go(el, b){ $$(el, '.slide').forEach((x, i) => { x.classList.toggle('on', i === b); x.classList.toggle('gone', i < b); }); $(el, '.cnt').textContent = `${b + 1} / 3`; } },
+    onb: { n: 5,
+      pre(el){ S(el, 0); this.mark(el, -1, 0); },
+      mark(el, on, fill){ $$(el, '.phone').forEach((p, j) => p.classList.toggle('on', j === on)); $$(el, '.dot').forEach((d, j) => d.classList.toggle('on', j <= (on < 0 ? (fill ? 3 : -1) : on))); el.style.setProperty('--fill', fill + 'cqw'); },
+      go(el, b){ S(el, 2); if (b < 4) this.mark(el, b, 48.6 * b / 3); else { el.classList.add('s9'); this.mark(el, -1, 48.6); } } },
+    time: { n: 2,
+      pre(el){ S(el, 0); this.morning(el); },
+      morning(el){ el.classList.remove('night'); $(el, '.clock').textContent = '07:30'; $(el, '.what').textContent = '바쁜 아침 든든하게'; setText($(el, '.hint'), '07:00~10:59에 홈을 열면\n아침 메뉴가 맨 위로 올라와요'); },
+      go(el, b, prev){ const g = gen(el); S(el, 2);
+        if (b === 0){ this.morning(el); return; }
+        el.classList.add('night'); $(el, '.what').textContent = '야식'; setText($(el, '.hint'), '21:00~00:59에 홈을 열면\n야식 카테고리가 맨 위로 올라와요');
+        const clock = $(el, '.clock'); if (prev === 0) count(clock, 7.5, 21.5, 900, clockFmt, liveOf(el, g)); else clock.textContent = '21:30'; } },
+    search: { n: 2,
+      pre(el){ gen(el); S(el, 0); el.classList.remove('menu'); $(el, '.q').textContent = ''; },
+      go(el, b){ const g = gen(el), live = liveOf(el, g), q = $(el, '.q'); S(el, 1);
+        el.classList.toggle('menu', b === 1);
+        typeTo(q, b ? '김치볶음밥' : '계란이랑 대파 쓰고 싶어', b ? 80 : 55, live).then(ok => ok && S(el, 2)); } },
+    yt: { n: 4,
+      pre(el){ gen(el); S(el, 0); $$(el, '.prog li').forEach(l => l.classList.remove('on')); },
+      go(el, b){ const g = gen(el), li = $$(el, '.prog li');
+        if (b === 0){ S(el, 2); li.forEach(l => l.classList.remove('on')); }
+        else if (b === 1){ S(el, 3); li.forEach(l => l.classList.remove('on')); li.forEach((l, i) => setTimeout(() => { if (el._g === g) l.classList.add('on'); }, reduce ? 0 : 250 + i * 380)); }
+        else { li.forEach(l => l.classList.add('on')); S(el, b === 2 ? 5 : 7); } } },
+    swap: { n: 4, pre(el){ S(el, 0); }, go(el, b){ S(el, [1, 3, 4, 6][b]); } },
+    kit: { n: 4, pre(el){ S(el, 0); }, go(el, b){ S(el, 2 + b); } },
+    steps: { n: 4,
+      pre(el){ this.stop(el); S(el, 0); this.card(el, 0); },
+      card(el, k){ $$(el, '.sc').forEach((c, i) => c.dataset.p = String(i - k)); },
+      stop(el){ clearInterval(el._tick); },
+      go(el, b){ this.stop(el);
+        if (b < 3){ this.card(el, b); S(el, b === 2 ? 4 : 0); return; }
+        this.card(el, 2); S(el, 5);
+        const tm = $(el, '.tm'), pr = $(el, '.timer .pr'); let sec = 1800;
+        const show = () => { tm.textContent = `${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`; pr.style.setProperty('--p', (sec / 1800 * 100).toFixed(2)); };
+        show(); el._tick = setInterval(() => { if (sec > 1740){ sec--; show(); } }, 1000); } },
+    chat: { n: 4,
+      pre(el){ S(el, 0); el.classList.remove('ans', 'voc'); },
+      go(el, b){ S(el, [2, 3, 4, 5][b]); el.classList.toggle('ans', b >= 2); el.classList.toggle('voc', b >= 3); } },
+    cam: { n: 3,
+      pre(el){ gen(el); S(el, 0); $(el, '.ask .t').textContent = ''; },
+      go(el, b, prev){ const g = gen(el), t = $(el, '.ask .t');
+        S(el, [2, 4, 5][b]);
+        if (prev < 0) typeTo(t, '이거 다 익었어?', 90, liveOf(el, g)); else t.textContent = '이거 다 익었어?';
+        const moving = (b === 2 && prev >= 0 && prev < 2) || (b < 2 && prev === 2);
+        el.classList.remove('walk', 'back');
+        if (moving && !reduce){ el.classList.add('walk'); if (b < 2) el.classList.add('back');
+          setTimeout(() => { if (el._g === g) el.classList.remove('walk', 'back'); }, 1600); } } },
+    diary: { n: 4,
+      pre(el){ gen(el); S(el, 0); stars.forEach(x => x.classList.remove('on')); $(el, '.won').textContent = '약 0원'; },
+      go(el, b, prev){ const g = gen(el), won = $(el, '.won');
+        S(el, [1, 3, 4, 6][b]);
+        if (prev < 0) stars.slice(0, 4).forEach((x, i) => setTimeout(() => { if (el._g === g) x.classList.add('on'); }, reduce ? 0 : 500 + i * 200));
+        else stars.slice(0, 4).forEach(x => x.classList.add('on'));
+        if (b === 3 && prev === 2) count(won, 0, 7100, 1100, v => '약 ' + (Math.round(v / 100) * 100).toLocaleString('ko-KR') + '원', liveOf(el, g));
+        else won.textContent = b === 3 ? '약 7,100원' : '약 0원'; } },
+    my: { n: 3,
+      pre(el){ S(el, 0); this.fan(el, 0); },
+      fan(el, k){ $$(el, '.fc').forEach((c, i) => c.dataset.p = String((i - k + 3) % 3)); },
+      go(el, b){ S(el, b ? 2 : 1); this.fan(el, b); } },
+  };
+
+  /* 화면에 보일 때만 반복 장식(떠다니는 구슬, 썸네일 흐름)을 돌린다 */
+  const vis = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+    const t = e.target; if (t._scene) t._scene.show(e.isIntersecting); else t.classList.toggle('play', e.isIntersecting);
+  }), { threshold: .2 }) : null;
+  $$(document, '.tile').forEach(el => {
+    const k = el.dataset.scene;
+    if (timed[k] && !reduce){ el._scene = new Scene(el, timed[k][1], timed[k][0]); if (!vis) el._scene.show(true); }
+    if (vis) vis.observe(el); else el.classList.add('play');
+  });
+
+  /* 스크롤 단위 만들기: 장면 하나 또는 짝 장면 하나가 한 단위 */
+  const units = [];
+  $$(document, '#screens > .tile, #screens > .pair, #screens2 > .tile').forEach(node => {
+    const tiles = node.classList.contains('pair') ? $$(node, '.tile') : [node];
+    const parts = tiles.filter(t => beats[t.dataset.scene]).map(t => ({ el: t, def: beats[t.dataset.scene], b: -2 }));
+    if (!parts.length) return;
+    const n = Math.max(...parts.map(p => p.def.n));
+    const unit = document.createElement('div'); unit.className = 'unit';
+    const pin = document.createElement('div'); pin.className = 'pin';
+    node.replaceWith(unit); unit.appendChild(pin); pin.appendChild(node);
+    const dots = document.createElement('div'); dots.className = 'beats'; dots.setAttribute('aria-hidden', 'true');
+    dots.innerHTML = '<i></i>'.repeat(n); pin.appendChild(dots);
+    units.push({ unit, pin, node, parts, n, dots: $$(dots, 'i'), cur: -2 });
+  });
+  document.documentElement.classList.add('scrolly');
+
+  const header = $(document, '.top');
+  /* 보이는 화면 높이: 아이패드에서는 주소창이 접히거나 claude.ai 칸 때문에 innerHeight가 실제 화면보다 커질 수 있어,
+     화면에 보이는 높이(visualViewport)와 기기 화면의 짧은 변을 넘지 않게 잡는다 */
+  function viewH(){
+    let h = innerHeight;
+    if (window.visualViewport && visualViewport.height) h = Math.min(h, visualViewport.height);
+    if (innerWidth > h && screen.width && screen.height) h = Math.min(h, Math.min(screen.width, screen.height));
+    return Math.round(h);
+  }
+  function layout(){
+    const hh = header.offsetHeight + (parseFloat(getComputedStyle(header).top) || 0);
+    document.documentElement.style.setProperty('--hh', hh + 'px');
+    const H = viewH();
+    document.documentElement.style.setProperty('--vh', H + 'px');
+    const per = Math.max(320, H * (innerWidth < 760 ? .5 : .78));
+    units.forEach(u => {
+      /* 가로 화면에서는 패널이 화면 높이를 다 쓰고(내용은 CSS가 가운데 맞춤), 세로 화면에서는 16:9 높이 */
+      u.pin.style.setProperty('--ph', (innerWidth > H ? H - hh : Math.min(u.unit.clientWidth * 9 / 16, H - hh)) + 'px');
+      const ph = u.pin.offsetHeight;
+      u.top = Math.max(hh, hh + (H - hh - ph) / 2);
+      u.pin.style.top = u.top + 'px';
+      u.unit.style.height = (ph + u.n * per) + 'px';
+    });
+    tick();
+  }
+  function tick(){
+    /* 전시 모드가 장면을 바꾸는 중(막이 덮여 있는 동안)에는 단계를 건드리지 않는다 */
+    if (document.documentElement.classList.contains('kiosk-hold')) return;
+    units.forEach(u => {
+      const r = u.unit.getBoundingClientRect();
+      const total = u.unit.offsetHeight - u.pin.offsetHeight;
+      let b;
+      if (r.top > innerHeight * .62) b = -1;
+      else b = Math.min(u.n - 1, Math.max(0, Math.floor(((u.top - r.top) / total) * u.n)));
+      if (b === u.cur) return;
+      u.cur = b;
+      u.dots.forEach((d, i) => d.classList.toggle('on', i <= b));
+      u.parts.forEach(p => {
+        const pb = b < 0 ? -1 : Math.min(p.def.n - 1, Math.floor(b * p.def.n / u.n));
+        if (pb === p.b) return;
+        if (pb < 0) p.def.pre(p.el); else p.def.go(p.el, pb, p.b < -1 ? -1 : p.b);
+        p.b = pb;
+      });
+    });
+  }
+  let raf = 0;
+  addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; tick(); }); }, { passive: true });
+  /* 전시 모드가 자리를 옮기면 프레임을 기다리지 않고 바로 장면 단계를 맞춘다 */
+  addEventListener('kiosk-jump', tick);
+  /* 전시 모드가 새 장면으로 넘어가기 직전: 그 장면을 처음 상태로 즉시 되돌려 두면, 막이 걷힌 뒤 등장 움직임이 처음부터 보인다 */
+  addEventListener('kiosk-enter', e => {
+    const u = units.find(x => x.unit === e.detail); if (!u) return;
+    u.cur = -2;
+    u.parts.forEach(p => { p.el.classList.add('snap'); p.def.pre(p.el); p.b = -1; void p.el.offsetWidth; p.el.classList.remove('snap'); });
+  });
+  let rt = 0;
+  addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 120); });
+  /* 아이패드 사파리 주소창이 접히고 펴질 때도 다시 맞춘다 */
+  if (window.visualViewport) visualViewport.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 120); });
+  units.forEach(u => u.parts.forEach(p => p.def.pre(p.el)));
+  layout();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+})();
+</script>
+
+<button type="button" class="totop" id="totop" aria-label="처음으로"><span aria-hidden="true">🔝</span></button>
+<div class="fadecover" aria-hidden="true"></div>
+<script>
+/* 전시 모드: 아무도 만지지 않으면 장면을 한 컷씩 넘긴다. 같은 장면 안에서는 다음 단계로 바로 바뀌고,
+   다른 장면으로 갈 때는 잠깐 어두워졌다 밝아지며 바뀐다. 끝까지 보면 처음 장면으로 돌아가 다시 돈다.
+   손이 닿는 순간(터치·클릭·휠·키) 바로 멈추고, 다시 가만히 두면 지금 장면부터 이어서 돈다. */
+(() => {
+  /* 처음 열면 FIRST 뒤에 바로 시작, 누가 만진 뒤에는 IDLE 동안 가만히 두면 다시 시작(주소 끝 ?idle=10 처럼 초 단위로 바꿀 수 있다) */
+  const FIRST = 1200, IDLE = (+new URLSearchParams(location.search).get('idle') || 12) * 1000;
+  /* 한 단계를 보여 주는 시간(ms). 장면에 처음 들어갈 때는 등장 움직임이 있어 ENTER만큼 더 머문다 */
+  const BEAT = 2800, ENTER = 700, FADE = 420;
+  const BEAT_OF = { onb: 1300 };
+  /* 단계가 없는 장면·구역에 머무는 시간 */
+  const HOLD_OF = { banner: 1800, hero: 2900, frames: 5200, jori3d: 10000 };
+  const root = document.documentElement, btn = document.getElementById('totop'), header = document.querySelector('.top'), cover = document.querySelector('.fadecover');
+  let on = false, idx = 0, tmr = 0, idleT = 0;
+
+  const maxY = () => root.scrollHeight - innerHeight;
+  const jump = y => { y = Math.max(0, Math.min(maxY(), Math.round(y))); scrollTo(0, y); if (Math.abs(scrollY - y) > 2) (document.scrollingElement || root).scrollTop = y; dispatchEvent(new Event('kiosk-jump')); };
+  const docTop = el => el.getBoundingClientRect().top + scrollY;
+
+  /* 멈춰 설 자리 목록: 장면 단계마다 한 자리(스크롤 장면은 그 단계의 한가운데) */
+  function stops(){
+    const hh = header.offsetHeight, list = [{ y: 0, ms: HOLD_OF.banner, cut: true }];
+    document.querySelectorAll('#screens > *, #jori3d, #screens2 > *').forEach(node => {
+      if (node.classList.contains('unit')){
+        const pin = node.querySelector('.pin'), n = pin.querySelectorAll('.beats i').length;
+        const sc = pin.querySelector('[data-scene]'), per = BEAT_OF[sc && sc.dataset.scene] || BEAT;
+        const total = node.offsetHeight - pin.offsetHeight, base = docTop(node) - (parseFloat(pin.style.top) || hh);
+        for (let b = 0; b < n; b++) list.push({ y: base + total * (b + .5) / n, ms: per + (b ? 0 : ENTER), cut: b === 0, unit: node });
+      } else {
+        list.push({ y: docTop(node) - hh, ms: HOLD_OF[node.id || node.dataset.scene] || 4000, cut: true });
+      }
+    });
+    return list;
+  }
+
+  /* 장면 바꾸기: 막을 덮고 → 새 장면 자리로 옮겨 처음 상태로 되돌린 뒤 → 막을 걷고 → 걷히는 중에 등장 움직임 시작 */
+  function show(s, then){
+    if (!s.cut){ jump(s.y); then(); return; }
+    /* 이미 그 자리(처음 열었을 때의 표지 등)면 막을 덮지 않고 그대로 보여 준다: 표지가 두 번 뜨지 않게 */
+    if (!s.unit && Math.abs(scrollY - Math.max(0, Math.min(maxY(), Math.round(s.y)))) < 4){ then(); return; }
+    cover.classList.add('on'); root.classList.add('kiosk-hold');
+    tmr = setTimeout(() => {
+      const y = Math.max(0, Math.min(maxY(), Math.round(s.y)));
+      scrollTo(0, y); if (Math.abs(scrollY - y) > 2) (document.scrollingElement || root).scrollTop = y;
+      if (s.unit) dispatchEvent(new CustomEvent('kiosk-enter', { detail: s.unit }));
+      tmr = setTimeout(() => {
+        cover.classList.remove('on');
+        tmr = setTimeout(() => { root.classList.remove('kiosk-hold'); dispatchEvent(new Event('kiosk-jump')); then(); }, 180);
+      }, 60);
+    }, FADE);
+  }
+  function next(){
+    if (!on) return;
+    const list = stops();
+    if (idx >= list.length) idx = 0;
+    const s = list[idx++];
+    show(s, () => { if (on) tmr = setTimeout(next, s.ms); });
+  }
+  function start(){
+    if (on) return;
+    on = true; root.classList.add('kiosk');
+    /* 지금 보고 있던 자리부터 이어서 */
+    const list = stops(), y = scrollY;
+    idx = Math.max(0, list.findIndex(s => s.y >= y - 4));
+    if (idx < 0) idx = 0;
+    next();
+  }
+  function stop(){
+    on = false; clearTimeout(tmr); cover.classList.remove('on'); root.classList.remove('kiosk');
+    if (root.classList.contains('kiosk-hold')){ root.classList.remove('kiosk-hold'); dispatchEvent(new Event('kiosk-jump')); }
+  }
+  function poke(){ stop(); wake(); clearTimeout(idleT); idleT = setTimeout(start, IDLE); }
+  ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(t => addEventListener(t, poke, { passive: true }));
+
+  /* 처음으로 */
+  btn.addEventListener('click', () => { jump(0); poke(); });
+  const showBtn = () => btn.classList.toggle('show', scrollY > innerHeight * .6);
+  addEventListener('scroll', showBtn, { passive: true }); showBtn();
+
+  /* 화면이 꺼지지 않게(허용되는 브라우저에서만) */
+  function wake(){ try { navigator.wakeLock && navigator.wakeLock.request('screen').catch(() => {}); } catch (e) {} }
+  wake(); document.addEventListener('visibilitychange', () => { if (!document.hidden) wake(); });
+
+  idleT = setTimeout(start, FIRST);
+})();
+</script>
+
+<div id="tip" role="tooltip"></div>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="jori3d.js"></script>
+
+</body></html>
